@@ -12,10 +12,11 @@ with tab1 :
     st.subheader("Ⅰ. 프로젝트 개요")
     st.markdown("- 프로젝트명 : 기존 제작 대비 30% 저렴한 공동생산방식의 의류제작 플랫폼")
     st.markdown("- 프로젝트 기간 : 2022.06 ~ 2022.12")
+    st.markdown("- 프로젝트 발주 : 데이터바우처 사업-AI가공-에 공급기업으로 참여하여 스타트업 수요기업에 데이터 서비스 제공")
     st.markdown("""
                 - 프로젝트 내용
-                    - 국내 의류산업(도소매, 제조)에 대한 데이터 분석 앱 개발
-                    - COVID-19 시대 이전과 이후 사이의 의류산업 차이에 대한 인사이트 발견
+                    - 국내 의류산업(도소매, 제조) 기업들에 대한 데이터 분석 앱 개발
+                    - COVID-19 시대 이전과 이후 사이의 의류산업 변동에 대한 인사이트 발견
                 """)
     st.markdown("- 주요언어 : R")
     
@@ -90,6 +91,8 @@ with tab3 :
                     - 해당 기업 재무정보의 COVID-19 이전과 이후 시각화
                     """)
         
+        st.markdown('<hr style="border: 1px solid #ccc; margin: 20px 0;">', unsafe_allow_html=True)
+        
         st.markdown("""
                     - 주요 기업 건전성 지표 정의 : 한국은행 2019년 기업경영분석결과(해설 및 통계편) 참조
                     - COVID-19 이전, 이후 기업 데이터 라벨링 후 ML 학습 진행
@@ -101,8 +104,12 @@ with tab3 :
     
     if fo :
         st.markdown("- 데이터마이닝 결과 기반 인사이트 보고서 작성")
-        st.image("src/JWi/report_vis1.png", use_column_width="auto")
-        st.image("src/JWi/report_vis2.png", use_column_width="auto")
+        column1, column2 = st.columns(2)
+        with column1 :
+            st.image("src/JWi/report_vis1.png", use_column_width="auto")
+        with column2 :
+            st.image("src/JWi/report_vis2.png", use_column_width="auto")
+        
 
 
 #%% 기타

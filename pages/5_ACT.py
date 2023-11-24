@@ -62,12 +62,16 @@ with tab3 :
                         - 대상으로 하는 9개 인지검사 영역 별로 컴퓨터 기반 적응적 검사(CAT) 개발
                         - 종합 적응적 인지검사 시스템 ACT 개발
                     """)
-        st.image("src/ACT/Purpose_ACT.png")
+        _, column1, _ = st.columns([1, 8, 1])
+        with column1 :
+            st.image("src/ACT/Purpose_ACT.png")
         
         st.markdown("""
                     - 데이터 구성
                     """)
-        st.image("src/ACT/Data_ACT.png")
+        _, column2, _ = st.columns([1, 8, 1])
+        with column2 :
+            st.image("src/ACT/Data_ACT.png")
     
     if s :
         st.markdown("""
@@ -99,9 +103,16 @@ with tab3 :
                     - 적응적 검사의 추정 예측성능 산출
                     """)
         
-        st.image("src/ACT/cor_ACT.png")
-        st.image("src/ACT/MAE_ACT.png")
-        st.image("src/ACT/RMSE_ACT.png")
+        result1, result2, result3 = st.columns(3)
+        
+        with result1 : 
+            st.image("src/ACT/cor_ACT.png", use_column_width="auto")
+        
+        with result2 :
+            st.image("src/ACT/MAE_ACT.png", use_column_width="auto")
+        
+        with result3 :
+            st.image("src/ACT/RMSE_ACT.png", use_column_width="auto")
     
     if fif :
         
@@ -124,6 +135,12 @@ with tab4 :
         st.components.v1.html('<iframe src="http://psyctest.orp.co.kr/introduce/view/?s=40" width="1500" height="600"></iframe>', height=600)
 #%% 기타
 
+with open("src/ACT/merged_code.r", "r", encoding = "utf-8") as r_read :
+    r_code = r_read.read()
+
 with tab5 : 
     with st.expander("참여증빙서류") :
         st.image("src/ACT/participation_ACT.jpg")
+    
+    with st.expander("논문 구현 코드") :
+        st.code(r_code, language = "r")

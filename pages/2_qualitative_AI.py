@@ -46,10 +46,10 @@ with tab2 :
 #%% 프로젝트 진행
 
 with tab3 :
-    col1,arrow1, col2, arrow2,col3 = st.columns(5)
+    col1,arrow1, col2, arrow2,col3, arrow3, col4= st.columns(7)
     
     with col1 :
-        f = st.button(label = "프로젝트 목표 및 사업계획서 작성", key = "first", type="primary")
+        f = st.button(label = "사업계획서 작성", key = "first", type="primary")
     
     with arrow1 :
         st.markdown("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;➡️&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
@@ -63,6 +63,12 @@ with tab3 :
 
     with col3 : 
         t = st.button(label = "통합분류체계구성", key = "third", type="primary")
+        
+    with arrow3 :
+        st.markdown("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;➡️&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
+    
+    with col4 : 
+        fo = st.button(label = "운영환경구축", key = "fourth")
     
     # 프로젝트 목표 및 사업계획서 작성
     if f :

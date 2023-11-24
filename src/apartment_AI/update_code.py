@@ -1,4 +1,5 @@
-#1. 모듈 불러오기
+#%% 업데이트 준비
+#1. 라이브러리 불러오기
 import pandas as pd
 import requests
 import json
@@ -18,6 +19,7 @@ import re
 
 warnings.filterwarnings(action = "ignore")
 
+#2. ray 사용 준비
 #(1). 코어 개수 확인
 cores = os.cpu_count()
 print(cores)
@@ -26,6 +28,7 @@ print(cores)
 ray.shutdown()
 ray.init()
 
+#%% DB 연결 및 범위 지정
 #2. 검색정보 불러오기
 #(1). mysql의 infor DB에 접속
 con = pymysql.connect(host = "localhost", user = "root", password="0000", db = "infor", charset='utf8')
@@ -63,7 +66,7 @@ need = need.split()
 
 con.close()
 
-#3. 검색대상의 배치화
+#%%검색대상의 배치화
 #(1). 코어 수 확인하기
 use_cores = os.cpu_count()
 print(use_cores)
@@ -91,7 +94,7 @@ for i in range(1,use_cores) :
         batches.append(appending)
         print(appending.shape)
 
-#4. 함수 선언
+#1. 함수 선언
 #(1). API 호출함수 using requests.get
 def collectinfor(sigunguCd, bjdongCd, startDate, endDate, key) :
     #(1). 호출 URL
@@ -224,7 +227,7 @@ def dat_final_make(examples, key1, key2, key3, startDate, endDate, need) :
         
     return dat_full_collect
 
-#5. API 호출(병렬처리)
+#%% API 호출(병렬처리)
 refs = []
 
 for t in batches :
@@ -233,7 +236,7 @@ for t in batches :
 
 returns = ray.get(refs)
 
-#6. 데이터 정리
+#%% 데이터 정리
 return_collection = []
 for i in returns :
     target = i
@@ -242,7 +245,7 @@ for i in returns :
         
 len(return_collection)
 
-#7. 데이터프레임과 아닌 것들 나누기
+#1. 데이터프레임과 아닌 것들 나누기
 dataframe = []
 nonframe =[]
 
@@ -263,6 +266,43 @@ now = time.strftime('%Y%m%d', now)
 dat_final.insert(0,'update_time', now)
 dat_final.head(2)
 
+#(2). non데이터프레임 정리
+non_pass = []
+
+for i in nonframe :
+    target = i
+    if target != "nothing" :
+        non_pass.append(target)
+
+#(3). 에러 처리
+non_sigungu = []
+non_bjdong = []
+non_error_name = []
+non_error_num = []
+
+for i in non_pass :
+    target = i
+    target = target.split("/")
+    
+    non_sigungu.append(target[0])
+    non_bjdong.append(target[1])
+    non_error_name.append(target[2])
+    non_error_num.append(target[3])
+
+non_pass_dic = {}
+non_pass_dic['sigunguCd'] = non_sigungu
+non_pass_dic['bjdongCd'] = non_bjdong
+non_pass_dic['error_name'] = non_error_name
+non_pass_dic['error_num'] = non_error_num
+
+dat_error = pd.DataFrame(non_pass_dic)
+
+#업데이트 날짜 추가
+now = time.localtime()
+now = time.strftime('%Y%m%d', now)
+dat_error.insert(0, "update_date", now)
+dat_error.head(3)
+
 #7. DB에 데이터 적재
 con = pymysql.connect(host = "localhost", user = "root", password="0000", db = "data_current", charset='utf8')
 cur = con.cursor()
@@ -282,6 +322,21 @@ for i in range(dat_final.shape[0]) :
         con.commit()
     except : 
         print(i)
+        next
+
+#(2). 에러 적재
+for i in range(dat_error.shape[0]) :
+    target = dat_error.iloc[i,:]
+    target = tuple(target)
+    
+    try : 
+        query = """
+            INSERT INTO 전용면적_에러(update_date, sigunguCd, bjdongCd, error_name, error_num) VALUE {}
+        """.format(target)
+        cur.execute(query)
+        con.commit()
+    except :
+        print(target)
         next
 
 con.close()

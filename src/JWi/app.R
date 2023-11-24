@@ -14,8 +14,8 @@ library(randomForest)
 
 # define some credentials
 credentials <- data.frame(
-  user = c("JWi", "jhyoon"), # mandatory
-  password = c("741963", "789123"), # mandatory
+  user = c("***", "****"), # mandatory
+  password = c("****", "****"), # mandatory
   start = c("2022-09-04"), # optinal (all others)
   expire = c(NA, NA),
   admin = c(FALSE, TRUE),
