@@ -30,7 +30,7 @@ with tab1 :
 #%% WBS
 
 with tab2 :
-    st.image('src/apartment_AI\WBS_apartment.png')
+    st.image('src/apartment_AI/WBS_apartment.png')
 
 
 #%% 프로젝트 진행

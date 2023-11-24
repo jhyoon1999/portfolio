@@ -7,7 +7,7 @@ show_pages(
         Section(name="참여 프로젝트", icon=":pig:"),
         Page("pages/1_travel_recommend.py", "제주도 여행지 추천 웹서비스 개발"),
         Page("pages/2_qualitative_AI.py", "AI기반 리서치 정성데이터 분석플램폼 구축"),
-        Page("pages/3_clothes_industry.py", "기존 제작 대비 30% 저렴한 공동생산방식의 의류제작 플랫폼"),
+        Page("pages/3_clothes_industry.py", "기존 제작 대비 저렴한 공동생산방식의 의류제작 플랫폼"),
         Page("pages/4_apartment_AI.py", "AI 기반 맞춤형 아파트 분석 추천시스템"),
         Page("pages/5_ACT.py", "예측모델링 알고리즘을 활용한 종합 적응적 인지검사 시스템 ACT 개발"),
     ]

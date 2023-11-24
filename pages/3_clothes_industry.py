@@ -29,7 +29,7 @@ with tab1 :
 
 #%% WBS
 with tab2 :
-    st.image("src/JWi\WBS_JWi.png")
+    st.image("src/JWi/WBS_JWi.png")
 
 #%% 프로젝트 진행
 with tab3 :
