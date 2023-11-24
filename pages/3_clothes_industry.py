@@ -82,7 +82,9 @@ with tab3 :
         
         st.markdown("- 분석 앱 이미지")
         st.image("src/JWi/app_vis1.png", use_column_width="auto")
+        st.markdown('<hr style="border: 0.5px dashed #ccc; margin: 20px 0;">', unsafe_allow_html=True)
         st.image("src/JWi/app_vis2.png", use_column_width="auto")
+        st.markdown('<hr style="border: 0.5px dashed #ccc; margin: 20px 0;">', unsafe_allow_html=True)
         st.image("src/JWi/app_vis3.png", use_column_width="auto")
     
     if t :

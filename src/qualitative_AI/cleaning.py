@@ -6,7 +6,7 @@ import re
 #%% 첫번째) 파일 불러오기
 
 #1. 폴더 위치를 입력하여 해당 폴더 내의 파일명을 읽어드린다.
-folder_path = '공공/(중요)추추추가검증중/159_한국산업기술대학교_가족회사'
+folder_path = '****'
 files_name = os.listdir(folder_path)
 print(pd.Series(files_name))
 
