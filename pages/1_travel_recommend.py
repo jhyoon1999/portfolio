@@ -44,6 +44,7 @@ with tab1 :
                 - AI 기반 추천시스템 개발
                 - AI 연동 API 개발
                 """)
+    st.markdown('<hr style="border: 1px solid #ccc; margin: 20px 0;">', unsafe_allow_html=True)
 
 #%% WBS
 
@@ -214,6 +215,8 @@ with tab3 :
                     """)
         st.image("src/travel_recommend/ERD_recommend.png")
         
+        st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
+        
         st.markdown("""
                     - 핵심 데이터 테이블 선택
                     """)
@@ -236,12 +239,16 @@ with tab3 :
         
         st_mermaid(cleaning_process, height= "500px")
         
+        st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
+        
         st.markdown("""
                     - 주요변수 정의
                         - catboost 기반 만족도 예측에서의 변수중요도(variable importance) 산출
                         - 중요 변수들은 추후 추천시스템에서 예측변수로 활용
                     """)
         st.image("src/travel_recommend/variable_importance_recommend.png")
+        
+        st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
         
         st.markdown("- 데이터 시각화")
         st.image("src/travel_recommend/data_vis.png")
@@ -252,6 +259,9 @@ with tab3 :
                     - 알고리즘 후보군 선정
                     """)
         st.markdown(algorithms_info, unsafe_allow_html=True)
+        
+        st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
+        
         st.markdown("""
                     - 선정 : CatBoost
                     - 선정사유 
@@ -260,8 +270,11 @@ with tab3 :
                         - CatBoost는 범주형 특성이 많을 경우 높은 예측성능을 보임 
                     """)
 
+        st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
         st.markdown("- 모델성능")
-        st.image("src/travel_recommend/performance_AI.png")
+        _, performance_column, _ = st.columns([1,8,1])
+        with performance_column :
+            st.image("src/travel_recommend/performance_AI.png")
     
     if fo :
         st.markdown("""

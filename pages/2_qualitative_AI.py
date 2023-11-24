@@ -36,6 +36,7 @@ with tab1 :
                 - 리서치 정성문항 통합 라벨링 체계 구성
                 - ML 학습결과 해석 및 피드백
                 """)
+    st.markdown('<hr style="border: 1px solid #ccc; margin: 20px 0;">', unsafe_allow_html=True)
 
 #%% WBS
 
@@ -78,6 +79,7 @@ with tab3 :
                         - LLM 기반 정성문항 분석(주제, 감성) AI 개발 : 공급기업 담당
                         - 리서치 정성데이터 분석 플랫폼 개발 : 공통
                     """)
+        st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
         st.markdown("""
                     - 사업계획서 작성 및 발표(기여도 : 40%)
                     """)

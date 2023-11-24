@@ -48,7 +48,7 @@ th {
   </tr>
   <tr>
     <td>Framework/Library</td>
-    <td>1. 데이터분석 : pandas, numpy <br> 2. 데이터 시각화 : matplotlib, seaborn, plotly <br> 3. 머신러닝 : scikit-Learn, catbbost pytorch <br> 4. 추천시스템 : surprise, LightFM, LibRecommender <br> 5. 프론트엔드 : Streamlit, Shiny <br> 6. 백엔드 : fastapi <br> 7. DB : sqlalchemy, alembic</td>
+    <td>1. 데이터분석 : pandas, numpy <br> 2. 데이터 시각화 : matplotlib, seaborn, plotly <br> 3. 머신러닝 : scikit-Learn, catbost, pytorch <br> 4. 추천시스템 : surprise, LightFM, LibRecommender <br> 5. 프론트엔드 : Streamlit, RShiny <br> 6. 백엔드 : FastAPI <br> 7. DB조작 : sqlalchemy, alembic</td>
   </tr>
   <tr>
     <td>BI Tool</td>
@@ -148,9 +148,7 @@ th {
   </tr>
   <tr>
     <td>부서 및 직위</td>
-    <td>AI빅데이터사업부/컨설턴트</td>
-    <td>연봉</td>
-    <td>3740만원</td>
+    <td colspan="3">AI빅데이터사업부/컨설턴트</td>
   </tr>
   <tr>
     <td>회사정보</td>
@@ -169,11 +167,11 @@ with tab2 :
                 - PM(Project Manager) 역할 수행
                 - 데이터 수집 : OpenAPI, 웹스크래핑
                 - 데이터 분석 : R, Python 활용
-                - 데이터 분석 시각화 : RShiny, Power BI 활용
+                - 데이터 시각화 : RShiny, Power BI 활용
                 
                 
                 ##### Ⅱ. 업무성과
-                - AI바우처 사업 수주 및 PM역할 수행을 통한 리서치 NLP AI솔루션 개발 : 사업비 3억원의 프로젝트
+                - AI바우처 사업 수주 및 PM역할 수행을 통한 리서치 정성데이터 AI솔루션 개발 : 사업비 3억원의 프로젝트
                 - 데이터바우처 사업 수주 프로젝트 수행 및 완료 : 사업비 7천만원의 프로젝트 종료
                 - 데이터바우처 사업 프로젝트 수주 : 사업비 6천만원 프로젝트 수주에 기여
                 """)
@@ -190,14 +188,14 @@ with tab2 :
     - 데이터 수집
     - 데이터 분석
     - AI기반 추천시스템 개발
-    - API 개발
-    - 배포
+    - AI 연동 API 개발
+    - API 배포
                     """)
     
     with st.expander("AI 기반 리서치 정성(Qualitative)데이터 분석 플랫폼 구축(2023.01 ~ 2023.07)") :
         st.markdown("- 구분 : 팀 프로젝트")
         st.markdown("- 참여기간 : 2023.01 ~ 2023.07")
-        st.markdown("- 프로젝트 요약 : 시장 및 여론조사에서의 텍스트 답변에 대한 자동 라벨링 플랫폼 개발")
+        st.markdown("- 프로젝트 요약 : 시장 및 여론조사에서의 정성문항 답변에 대한 자동 라벨링 플랫폼 개발")
         st.markdown("""- 담당 업무
     - 사업계획서 및 발표자료 작성
     - PM(Project Manager) 역할 수행
@@ -215,6 +213,7 @@ with tab2 :
     - 데이터 분석
     - 데이터 시각화 플랫폼 개발
     - ML을 통한 인사이트 발굴
+    - 보고서 작성
                     """)
     
     with st.expander("AI 기반 맞춤형 아파트 분석 추천시스템 개발(2022.06 ~ 2022.12)") :
@@ -319,20 +318,22 @@ with tab3 :
     저의 업무상 강점은 다음의 세 가지 역량 및 경험으로 요약할 수 있으며, 이와 같은 업무능력을 바탕으로 데이터분석 포지션에 지원하고자 합니다.
 
     1. 빅데이터 분석 능력
-    ⋅다양한 업종(의류산업, 부동산, 인지능력검사, 마케팅 리서치)의 데이터에 대한 분석 경험
-    ⋅데이터 분석 기반 인사이트 제공 경험
+    - 다양한 업종(의류산업, 부동산, 인지능력검사, 마케팅 리서치)의 데이터에 대한 분석 경험
+    - 데이터 분석 기반 인사이트 제공 경험
 
     2. 다양한 프로그래밍 언어 활용 능력
-    ⋅R, Python 등의 데이터사이언스 언어 활용 가능
-    ⋅Tableau, Power BI 등 BI솔루션 활용 가능
-    ⋅그 외 업무에 필요한 프로그램(SQL, Exel) 활용 가능
+    - R, Python 등의 데이터사이언스 언어 활용 가능
+    - Tableau, Power BI 등 BI솔루션 활용 가능
+    - FastAPI 프레임워크를 이용한 API 개발 가능
+    - Streamlit 등의 프레임워크를 이용한 웹 앱 개발 가능
+    - 그 외 업무에 필요한 프로그램(SQL, Exel) 활용 가능
 
     3. 빅데이터 프로젝트 PM 능력
-    ⋅AI바우처, 데이터바우처 사업 수주 프로젝트에서 PM으로써 프로젝트 운영 및 완수 경험
+    - AI바우처, 데이터바우처 사업 수주 프로젝트에서 PM으로써 프로젝트 운영 및 완수 경험
 
     4. 머신러닝 기반 AI 솔루션 개발 능력
-    ⋅채용 목적의 AI기반 인지능력 검사 개발 경험
-
+    - 채용 목적의 AI기반 인지능력 검사 개발 경험
+    - AI 기반 여행지 추천시스템 개발 경험  
     """
     
     container_with_border3 = f"""

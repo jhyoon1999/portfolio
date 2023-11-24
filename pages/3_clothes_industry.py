@@ -60,13 +60,14 @@ with tab3 :
                         - 필요 데이터 : 국내 의류 산업 내 기업들의 연도별 기본 및 재무 정보
                         - 구매처 : 나이스디앤비
                     """)
+        st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
         st.markdown("""
                     - 구매 데이터 정보
                         - 데이터 내 기업 수 : 10,353개
                         - 주요 사업군 별 기업 수
                     """)
         st.image("src/JWi/industry_vis.png", use_column_width="auto")
-        
+        st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
         st.markdown("""
                     - 구매 데이터 검수 
                     """)
@@ -91,7 +92,7 @@ with tab3 :
                     - 해당 기업 재무정보의 COVID-19 이전과 이후 시각화
                     """)
         
-        st.markdown('<hr style="border: 1px solid #ccc; margin: 20px 0;">', unsafe_allow_html=True)
+        st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
         
         st.markdown("""
                     - 주요 기업 건전성 지표 정의 : 한국은행 2019년 기업경영분석결과(해설 및 통계편) 참조

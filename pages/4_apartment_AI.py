@@ -79,7 +79,7 @@ with tab3 :
                             - 수집 방법 : 설문조사
                     """)
         
-        st.markdown('<hr style="border: 1px solid #ccc; margin: 20px 0;">', unsafe_allow_html=True)
+        st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
         
         st.markdown("""
                     - 데이터 수집 담당 목록
