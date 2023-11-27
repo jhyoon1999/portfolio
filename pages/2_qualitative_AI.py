@@ -107,7 +107,13 @@ with tab3 :
         _,col1,_ = st.columns([2,6,2])
         with col1 :
             st.image("src/qualitative_AI/table_project.png", use_column_width="auto")
-    
+        
+        st.markdown("- 실시간 데이터 관리 대시보드")
+        
+        _,col2,_ = st.columns([2,6,2])
+        with col2 :
+            st.image("src/qualitative_AI/management.PNG", use_column_width="auto")
+
     # 통합분류체계구성
     
     if t :

@@ -7,7 +7,7 @@ show_pages(
         Section(name="참여 프로젝트", icon=":pig:"),
         Page("pages/1_travel_recommend.py", "제주도 여행지 추천 웹서비스 개발"),
         Page("pages/2_qualitative_AI.py", "AI기반 리서치 정성데이터 분석플램폼 구축"),
-        Page("pages/3_clothes_industry.py", "기존 제작 대비 저렴한 공동생산방식의 의류제작 플랫폼"),
+        Page("pages/3_clothes_industry.py", "국내 의류산업 현황 분석 및 분석 앱 개발"),
         Page("pages/4_apartment_AI.py", "AI 기반 맞춤형 아파트 분석 추천시스템"),
         Page("pages/5_ACT.py", "예측모델링 알고리즘을 활용한 종합 적응적 인지검사 시스템 ACT 개발"),
     ]
@@ -15,7 +15,7 @@ show_pages(
 
 add_page_title()
 
-tab1, tab2, tab3 = st.tabs(['소개 및 기술스택', '경력 및 그 외 정보', '자기소개'])
+tab1, tab2 = st.tabs(['소개 및 기술스택', '경력 및 그 외 정보'])
 
 #%% 소개 및 스킬
 main_stack = """
@@ -204,7 +204,7 @@ with tab2 :
     - ML 학습 결과 해석 및 피드백
                     """)
     
-    with st.expander("기존 제작 대비 30% 저렴한 공동생산 방식의 의류제작 플랫폼 개발(2022.06 ~ 2022.12)") :
+    with st.expander("국내 의류산업 현황분석 및 분석앱 개발(2022.06 ~ 2022.12)") :
         st.markdown("- 구분 : 팀 프로젝트")
         st.markdown("- 참여기간 : 2022.06 ~ 2022.12")
         st.markdown("- 프로젝트 요약 : 국내 의류사업군 데이터 분석을 통한 국내 의류사업 실태 인사이트 발굴")
@@ -257,111 +257,3 @@ with tab2 :
                 - 학점 : 4.0/4.5
                 - 지역 : 서울
                 """)
-
-#%% 자기소개서
-with tab3 :
-    
-    st.markdown("##### 1. 성장과정")
-    st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
-    
-    growth = """
-    저는 부족하지 않은 환경에서 자랐습니다. 
-    물론 물질적으로 타인에 비해 풍족하다고는 할 수 없었으나 부모님께서는 항상 삶의 여유를 가지면서 사시려고 노력하셨습니다. 
-    그렇다보니 저도 삶에서 여유를 가지고 살기 위해 노력했습니다. 이러한 저의 태도는 타인을 대할 때 두드러졌습니다. 
-    타인과 업무 및 사적인 대화를 할 때 타인의 가치관, 생각, 행동이 나와는 다를 수 있고, 이는 옳고 그름이 아니라 시각의 다름임을 항상 인지하려고 노력합니다.
-    이는 데이터 분석 및 인사이트 발견에 있어서 매우 중요하다고 생각합니다. 동일한 차트를 보고 타인은 다른 해석을 할 수 있으며, 색다른 시각은 본인의 생각에만 갇히지 않게끔 해줍니다.
-    따라서 저는 다양한 의견을 취합하여 더 나은 인사이트와 의사결정을 내리기 위해 커뮤니케이션 하려고 노력하며, 저의 태도가 데이터 분석에서 가장 중요한 자질이라고 생각합니다.
-        """
-    
-    container_with_border1 = f"""
-    <div style="
-        border: 2px solid #000; /* 테두리 스타일 및 색상 설정 */
-        padding: 0px; /* 컨테이너 내부 여백 설정 */
-    ">
-    {growth}
-    </div>
-    """
-    
-    st.markdown(container_with_border1, unsafe_allow_html=True)
-    
-    empty_space = '<div style="height: 30px;"></div>'
-    st.markdown(empty_space, unsafe_allow_html=True)
-
-    st.markdown("##### 2. 성격소개 (장점/단점, 취미/특기, 생활신조 등)")
-    
-    st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
-    
-    character = """
-    저의 가장 큰 장점은 도전정신과 이에 따른 적극성입니다. 
-    제가 맡는 업무를 누구보다 완벽히 수행하기 위해 시간을 쪼개서 필사적으로 노력하며, 부족한 역량이 발견되면 밤을 세서라도 이를 갖추기 위해 노력합니다. 
-    하지만 이러한 장점이 너무 과하여, 업무 후에 쉽게 지치는 체력적인 단점을 갖고 있습니다. 해당 단점을 극복하기 위해 운동을 통해 체력을 기르고, 명상을 통해 스트레스를 관리하는 취미를 갖고 있습니다.
-    """
-    
-    container_with_border2 = f"""
-    <div style="
-        border: 2px solid #000; /* 테두리 스타일 및 색상 설정 */
-        padding: 0px; /* 컨테이너 내부 여백 설정 */
-    ">
-    {character}
-    </div>
-    """
-    
-    st.markdown(container_with_border2, unsafe_allow_html=True)
-
-    st.markdown(empty_space, unsafe_allow_html=True)
-    
-    st.markdown("##### 3. 희망업무 및 업무상 강점")
-    
-    st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
-
-    work = """
-    저의 업무상 강점은 다음의 세 가지 역량 및 경험으로 요약할 수 있으며, 이와 같은 업무능력을 바탕으로 데이터분석 포지션에 지원하고자 합니다.
-
-    1. 빅데이터 분석 능력
-    - 다양한 업종(의류산업, 부동산, 인지능력검사, 마케팅 리서치)의 데이터에 대한 분석 경험
-    - 데이터 분석 기반 인사이트 제공 경험
-
-    2. 다양한 프로그래밍 언어 활용 능력
-    - R, Python 등의 데이터사이언스 언어 활용 가능
-    - Tableau, Power BI 등 BI솔루션 활용 가능
-    - FastAPI 프레임워크를 이용한 API 개발 가능
-    - Streamlit 등의 프레임워크를 이용한 웹 앱 개발 가능
-    - 그 외 업무에 필요한 프로그램(SQL, Exel) 활용 가능
-
-    3. 빅데이터 프로젝트 PM 능력
-    - AI바우처, 데이터바우처 사업 수주 프로젝트에서 PM으로써 프로젝트 운영 및 완수 경험
-
-    4. 머신러닝 기반 AI 솔루션 개발 능력
-    - 채용 목적의 AI기반 인지능력 검사 개발 경험
-    - AI 기반 여행지 추천시스템 개발 경험  
-    """
-    
-    container_with_border3 = f"""
-    <div style="
-        border: 2px solid #000; /* 테두리 스타일 및 색상 설정 */
-        padding: 0px; /* 컨테이너 내부 여백 설정 */
-    ">
-    {work}
-    </div>
-    """
-    
-    st.markdown(container_with_border3, unsafe_allow_html=True)
-
-    st.markdown(empty_space, unsafe_allow_html=True)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
