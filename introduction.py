@@ -48,7 +48,7 @@ th {
   </tr>
   <tr>
     <td>Framework/Library</td>
-    <td>1. 데이터분석 : pandas, numpy <br> 2. 데이터 시각화 : matplotlib, seaborn, plotly <br> 3. 머신러닝 : scikit-Learn, catbost, pytorch <br> 4. 추천시스템 : surprise, LightFM, LibRecommender <br> 5. 프론트엔드 : Streamlit, RShiny <br> 6. 백엔드 : FastAPI <br> 7. DB조작 : sqlalchemy, alembic</td>
+    <td>1. 데이터분석 : pandas, numpy <br> 2. 데이터 시각화 : matplotlib, seaborn, plotly <br> 3. 머신러닝 : scikit-Learn, catboost, pytorch <br> 4. 추천시스템 : surprise, LightFM, LibRecommender <br> 5. 프론트엔드 : Streamlit, RShiny <br> 6. 백엔드 : FastAPI <br> 7. DB조작 : sqlalchemy, alembic</td>
   </tr>
   <tr>
     <td>BI Tool</td>
