@@ -96,7 +96,7 @@ with tab1 :
     col1, col2, _, col3 = st.columns([2,3,1,4])
     
     with col1 : 
-        st.image('src/photo1.jpg', width = 130)
+        st.image('src/photo2.png', width = 130)
     
     with col2 : 
         st.subheader('윤정한')
