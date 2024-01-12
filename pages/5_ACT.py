@@ -3,144 +3,166 @@ from st_pages import add_page_title
 
 add_page_title(layout = "wide")
 
-tab1, tab2, tab3, tab4, tab5 = st.tabs(["개요", "WBS", "프로젝트 진행",
-                                        "제품 출시", "기타"])
+tab1, tab2, tab3 = st.tabs(["요약", "프로젝트 진행","코드"])
 
-#%% 개요
+#%%1. 요약
+apartment_summary = """
+<style>
+  table {
+      width: 100%;
+      border-collapse: collapse;
+  }
+  
+  th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+  }
+  
+  th {
+      background-color: #808080;
+      color: white;
+  }
+</style>
+
+<table>
+  <tr>
+    <th>진행기간</th>
+    <td>2021.10 ~ 2021.12</td> 
+  </tr>
+  <tr>
+    <th>프로젝트 내용</th>
+    <td colspan="2">머신러닝을 활용해 기존 검사방식의 20% 길이의 인지검사 시스템 개발 </td> 
+  </tr>
+  <tr>
+    <th>사용언어</th>
+    <td>
+      <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/R_logo.jpg" alt="R Image" width="80" height="50">
+    </td>
+  </tr>
+</table>
+"""
 
 with tab1 :
-    st.subheader('Ⅰ. 프로젝트 개요')
-    st.markdown("- 프로젝트명 : 예측모델링 알고리즘을 활용한 종합 적응적 인지검사 시스템 ACT 개발")
-    st.markdown('- 프로젝트 기간 : 2021.10 ~ 2021.12')
-    st.markdown('- 프로젝트 내용 : 의사결정나무(Decision-Tree) 알고리즘을 이용해 기존 검사보다 80% 짧은 길이의 적응적 인지검사 시스템(ACT) 개발')
-    st.markdown('- 주요 언어 : R')
+    subcol1, subcol2 = st.columns([7,3])
+    with subcol1 :
+        st.subheader("Ⅰ. 프로젝트 요약")
+        st.markdown(apartment_summary, unsafe_allow_html=True)
+    with subcol2 :
+        st.text("\n")
+        st.text("\n")
+        st.write("###### 담당업무(기여도)")
+        st.progress(value=100, text = "데이터 분석(100%)")
+        st.progress(value=100, text = "알고리즘 구현(100%)")
+        st.progress(value=100, text = "적응적 검사 개발(100%)")
+        st.progress(value=100, text = "보고서 작성(100%)")
+
+    st.markdown('<hr style="border: 1px solid #ccc; margin: 20px 0;">', unsafe_allow_html=True)
+    
+    st.subheader("Ⅱ. WBS")
+    st.image("https://raw.githubusercontent.com/jhyoon1999/image_logo/master/ACT/WBS_ACT.png", use_column_width="auto")
     
     st.markdown('<hr style="border: 1px solid #ccc; margin: 20px 0;">', unsafe_allow_html=True)
     
-    st.subheader('Ⅱ. 담당업무')
-    st.markdown("- 수집 데이터 분석")
-    st.markdown("- 논문 알고리즘 구현")
-    st.markdown("- 적응적 인지검사 ACT 개발")
-    st.markdown("- 결과 보고서 작성")
-    st.markdown("- Working Technical Document 작성")
+    st.subheader("Ⅲ. 결과물(예시)")
+    with st.expander("데이터 관리 대시보드") :
+        st.image("https://raw.githubusercontent.com/jhyoon1999/image_logo/master/ACT/ACT_homepage.png", use_column_width="auto")
 
-#%% WBS
+#%%2. 프로젝트 진행
+
 with tab2 :
-    st.image('src/ACT/WBS_ACT.png')
+    #(1). 데이터 분석
+    fcol1, fcol2 = st.columns([2,8])
+    with fcol1 :
+        st.markdown(f'<div style="position:relative;">\
+                            <div style="border: 2px solid {"grey"}; padding: 10px; display: inline-block;">\
+                                <span style="font-weight:bold;">{"데이터 분석"}</span>\
+                            </div>\
+                        </div>', unsafe_allow_html=True)
+    with fcol2 :
+        st.markdown(f"""
+            <div style="border: 2px solid orange; padding: 10px; max-width:800px;">
+                <div style="position:relative; text-align:left;">
+                    <p style="font-weight:normal;">{"〮수집 데이터의 통계적 가정 검증 → 의사결정나무(Decision Tree) 기반 개발이 적절"}</p>
+                </div>
+                <div style="position:relative; text-align:center;">
+                    <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/ACT/assumption_result.png" alt="image" style="max-width:100%; max-height:400px;">
+                </div>
+            </div>
+        """, unsafe_allow_html=True)
+            
+    st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
 
-#%% 프로젝트 진행
+    #(2). 알고리즘 구현
+    scol1, scol2 = st.columns([2,8])
+    with scol1 :
+        st.markdown(f'<div style="position:relative;">\
+                            <div style="border: 2px solid {"grey"}; padding: 10px; display: inline-block;">\
+                                <span style="font-weight:bold;">{"알고리즘 구현"}</span>\
+                            </div>\
+                        </div>', unsafe_allow_html=True)
+    with scol2 :
+        st.markdown(f"""
+            <div style="border: 2px solid orange; padding: 10px; max-width:800px;">
+                <div style="position:relative; text-align:left;">
+                    <p style="font-weight:normal;">{"〮Yan(2004)의 Merged Decision Tree 구현 : 데이터 크기로 인한 과적합(overfit) 최소화"}</p>
+                </div>
+                <div style="position:relative; text-align:center;">
+                    <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/ACT/merged_tree.png" alt="image" style="max-width:100%; max-height:400px;">
+                </div>
+            </div>
+        """, unsafe_allow_html=True)
+            
+    st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
+    
+    #(3). 적응적 검사 개발
+    tcol1, tcol2 = st.columns([2,8])
+    with tcol1 :
+        st.markdown(f'<div style="position:relative;">\
+                            <div style="border: 2px solid {"grey"}; padding: 10px; display: inline-block;">\
+                                <span style="font-weight:bold;">{"적응적 검사 개발"}</span>\
+                            </div>\
+                        </div>', unsafe_allow_html=True)
+    with tcol2 :
+        st.markdown(f"""
+            <div style="border: 2px solid orange; padding: 10px; max-width:800px;">
+                <div style="position:relative; text-align:left;">
+                    <p style="font-weight:normal;">{"〮9개 인지영역 별 최선의 알고리즘 탐색 및 선택"}</p>
+                </div>
+                <div style="position:relative; text-align:center;">
+                    <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/ACT/algorithm_comparison.png" alt="image" style="max-width:100%; max-height:400px;">
+                </div>
+            </div>
+        """, unsafe_allow_html=True)
+            
+    st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
 
-with tab3 :
-    col1, arrow1, col2, arrow2, col3, arrow3, col4, arrow4, col5  = st.columns(9)
-    
-    with col1 :
-        f = st.button(label = "프로젝트 목표 및 데이터 구성", key = "first", type = "primary")
-    with arrow1 :
-        st.markdown("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;➡️&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
-    
-    with col2 :
-        s = st.button(label = "데이터 분석", key = "second", type = "primary")
-    with arrow2 :
-        st.markdown("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;➡️&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
-    
-    with col3 :
-        t = st.button(label = "논문 알고리즘 구현", key = "third", type = "primary")
-    with arrow3 :
-        st.markdown("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;➡️&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
-    with col4 :
-        fo = st.button(label = "ACT 개발", key = "fourth", type = "primary")
-    with arrow4 :
-        st.markdown("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;➡️&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
-    
-    with col5 :
-        fif = st.button(label = "보고서 작성", key = "fifth", type = "primary")
-    
-    
-    if f :
-        st.markdown("""
-                    - 프로젝트 목표
-                        - 대상으로 하는 9개 인지검사 영역 별로 컴퓨터 기반 적응적 검사(CAT) 개발
-                        - 종합 적응적 인지검사 시스템 ACT 개발
-                    """)
-        _, column1, _ = st.columns([1, 8, 1])
-        with column1 :
-            st.image("src/ACT/Purpose_ACT.png")
-        
-        st.markdown("""
-                    - 데이터 구성
-                    """)
-        _, column2, _ = st.columns([1, 8, 1])
-        with column2 :
-            st.image("src/ACT/Data_ACT.png")
-    
-    if s :
-        st.markdown("""
-                - 적응적 검사 개발 방향
-                    - 강력한 통계적 가정을 요구하는 문항반응이론(Item Response Theory)에 기반을 둔 적응적 검사 구현 불가
-                    - 대안으로 통계적 가정을 요구하지 않는 의사결정나무(Decision Tree) 기반 적응적 검사 개발 필요
-                """)
-        st.markdown("""
-                    - 과적합 문제
-                        - 각 검사 영역별 학습데이터가 충분치 않아 이른 과적합 발생 확인
-                        - 일반적인 의사결정나무 알고리즘으로는 충분한 예측성능 달성 불가
-                    """)
-        st.image("src/ACT/generalDT_ACT.png")
-        st.markdown("<div style='text-align:center;'><h10><strong>일반적인 의사결정나무 기반 적응적 검사</strong></h10></div>", unsafe_allow_html=True)
-    
-    if t :
-        st.markdown("""
-                    - 논문 탐색
-                        - Yan(2004)이 제시한 Merged Decision Tree 알고리즘이 데이터 부족으로 인한 과적합 문제 억제
-                    - 알고리즘 구현
-                        - Merged Decision Tree를 R을 이용해 구현 완료
-                    """)
-        st.image("src/ACT/Merged_DT_ACT.png")
-        st.markdown("<div style='text-align:center;'><h10><strong>Merged Decision Tree 기반 적응적 검사</strong></h10></div>", unsafe_allow_html=True)
-    
-    if fo :
-        st.markdown("""
-                    - 각 인지검사 영역별로 Merged Decision Tree 기반 적응적 검사 개발
-                    - 적응적 검사의 추정 예측성능 산출
-                    """)
-        
-        result1, result2, result3 = st.columns(3)
-        
-        with result1 : 
-            st.image("src/ACT/cor_ACT.png", use_column_width="auto")
-        
-        with result2 :
-            st.image("src/ACT/MAE_ACT.png", use_column_width="auto")
-        
-        with result3 :
-            st.image("src/ACT/RMSE_ACT.png", use_column_width="auto")
-    
-    if fif :
-        
-        col1, col2 = st.columns([5,5])
-        with col1 : 
-            st.markdown("- 결과 보고서 작성")
-            st.image("src/ACT/result_document.png")
-        
-        with col2 :
-            st.markdown("- Working Technical Document 작성")
-            st.image("src/ACT/Technical_ACT.png")
+    #(4). 보고서 작성
+    focol1, focol2 = st.columns([2,8])
+    with focol1 :
+        st.markdown(f'<div style="position:relative;">\
+                            <div style="border: 2px solid {"grey"}; padding: 10px; display: inline-block;">\
+                                <span style="font-weight:bold;">{"보고서 작성"}</span>\
+                            </div>\
+                        </div>', unsafe_allow_html=True)
+    with focol2 :
+        st.markdown(f"""
+            <div style="border: 2px solid orange; padding: 10px; max-width:800px;">
+                <div style="position:relative; text-align:left;">
+                    <p style="font-weight:normal;">{"〮보고서 및 Working Technical Document 작성"}</p>
+                </div>
+                <div style="position:relative; text-align:center;">
+                    <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/ACT/document_img.png" alt="image" style="max-width:100%; max-height:400px;">
+                </div>
+            </div>
+        """, unsafe_allow_html=True)
+            
+    st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
 
-#%% 제품 출시
-
-with tab4 :
-    with st.expander("0. ACT 공식 홈페이지(http://211.169.249.237/site/defaultMain.do)") :
-        st.components.v1.html('<iframe src="http://211.169.249.237/site/defaultMain.do" width="1500" height="600"></iframe>', height=600)
-    
-    with st.expander("1. ACT 소개 페이지(http://psyctest.orp.co.kr/introduce/view/?s=40)") :
-        st.components.v1.html('<iframe src="http://psyctest.orp.co.kr/introduce/view/?s=40" width="1500" height="600"></iframe>', height=600)
-#%% 기타
-
+#%%3. 코드
 with open("src/ACT/merged_code.r", "r", encoding = "utf-8") as r_read :
     r_code = r_read.read()
 
-with tab5 : 
-    with st.expander("참여증빙서류") :
-        st.image("src/ACT/participation_ACT.jpg")
-    
-    with st.expander("논문 구현 코드") :
+with tab3 :     
+    with st.expander("Merged Decision Tree  구현 코드") :
         st.code(r_code, language = "r")

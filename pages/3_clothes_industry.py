@@ -4,118 +4,157 @@ from st_pages import add_page_title
 
 add_page_title(layout = "wide")
 
-tab1, tab2, tab3, tab4 = st.tabs(["개요", "WBS", "프로젝트 진행","기타"])
+tab1, tab2, tab3 = st.tabs(["요약", "프로젝트 진행","코드"])
 
-#%% 개요
+#%% 1. 요약
+
+JWI_summary = """
+<style>
+  table {
+      width: 100%;
+      border-collapse: collapse;
+  }
+  
+  th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+  }
+  
+  th {
+      background-color: #808080;
+      color: white;
+  }
+</style>
+
+<table>
+  <tr>
+    <th>진행기간</th>
+    <td>2022.06 ~ 2022.12</td> 
+  </tr>
+  <tr>
+    <th>프로젝트 내용</th>
+    <td colspan="2">COVID-19 사태 전/후 의류산업 변동 분석</td> 
+  </tr>
+  <tr>
+    <th>사용언어</th>
+    <td>
+      <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/R_logo.jpg" alt="R Image" width="80" height="50">
+    </td>
+  </tr>
+  <tr>
+    <th>앱 개발</th>
+    <td>
+      <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/shiny_logo.png" alt="Shiny Image" width="80" height="50">
+    </td>
+</table>
+"""
+
 
 with tab1 :
-    st.subheader("Ⅰ. 프로젝트 개요")
-    st.markdown("- 프로젝트명 : 국내 의류산업 현황 분석 및 분석 앱 개발")
-    st.markdown("- 프로젝트 기간 : 2022.06 ~ 2022.12")
-    st.markdown("- 프로젝트 발주 : 데이터바우처 사업-AI가공-에 공급기업으로 참여하여 스타트업 수요기업에 데이터 서비스 제공")
-    st.markdown("""
-                - 프로젝트 내용
-                    - 국내 의류산업(도소매, 제조) 기업들에 대한 데이터 분석 앱 개발
-                    - COVID-19 시대 이전과 이후 사이의 의류산업 변동에 대한 인사이트 발견
-                """)
-    st.markdown("- 주요언어 : R")
+    subcol1, subcol2 = st.columns([7,3])
+    with subcol1 :
+        st.subheader("Ⅰ. 프로젝트 요약")
+        st.markdown(JWI_summary, unsafe_allow_html=True)
+    with subcol2 :
+        st.text("\n")
+        st.text("\n")
+        st.write("###### 담당업무(기여도)")
+        st.progress(value=30, text = "데이터 수집/가공(30%)")
+        st.progress(value=80, text = "분석 앱 개발(80%)")
+        st.progress(value=70, text = "인사이트 도출(70%)")
     
     st.markdown('<hr style="border: 1px solid #ccc; margin: 20px 0;">', unsafe_allow_html=True)
     
-    st.subheader("Ⅱ. 담당업무")
-    st.markdown("- 의류 산업 기업의 기본, 재무 정보 데이터 수집")
-    st.markdown("- 국내 의류 산업 기업의 데이터 분석 앱 개발")
-    st.markdown("- ML 기반 데이터 마이닝")
-    st.markdown("- 의류 산업 현황에 대한 인사이트 보고서 작성")
+    st.subheader("Ⅱ. WBS")
+    st.image("https://raw.githubusercontent.com/jhyoon1999/image_logo/master/JWi/WBS_JWi.png", use_column_width="auto")
+    
+    st.markdown('<hr style="border: 1px solid #ccc; margin: 20px 0;">', unsafe_allow_html=True)
+    
+    st.subheader("Ⅲ. 결과물")
+    with st.expander("01)분석 앱") :
+        st.image("https://raw.githubusercontent.com/jhyoon1999/image_logo/master/JWi/app_vis.png", use_column_width="auto")
+    with st.expander("02)인사이트 보고서") :
+        st.image("https://raw.githubusercontent.com/jhyoon1999/image_logo/master/JWi/insight_img.png", use_column_width="auto")
 
-#%% WBS
+#%%2. 프로젝트 진행
 with tab2 :
-    st.image("src/JWi/WBS_JWi.png")
+    #(1). 데이터 수집/가공
+    fcol1, fcol2 = st.columns([2,8])
+    with fcol1 :
+        st.markdown(f'<div style="position:relative;">\
+                            <div style="border: 2px solid {"grey"}; padding: 10px; display: inline-block;">\
+                                <span style="font-weight:bold;">{"데이터 수집/가공"}</span>\
+                            </div>\
+                        </div>', unsafe_allow_html=True)
+    with fcol2 :
+        st.markdown(f"""
+            <div style="border: 2px solid orange; padding: 10px; max-width:800px;">
+                <div style="position:relative; text-align:left;">
+                    <p style="font-weight:normal;">{"〮데이터 수집 : 국내 의류산업 내 기업들의 연도별 기본 및 재무정보"}</p>
+                </div>
+                <div style="position:relative; text-align:left;">
+                    <p style="font-weight:normal;">{"〮데이터 검수"}</p>
+                </div>
+                <div style="position:relative; text-align:center;">
+                    <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/JWi/missing_value.png" alt="image" style="max-width:100%; max-height:400px;">
+                </div>
+                <div style="position:relative; text-align:left;">
+                    <p style="font-weight:normal;">{"〮기업 건전성 변수 생성"}</p>
+                </div>
+                <div style="position:relative; text-align:center;">
+                    <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/JWi/variable_img.png" alt="image" style="max-width:100%; max-height:400px;">
+                </div>
+            </div>
+        """, unsafe_allow_html=True)
+        
+    st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
 
-#%% 프로젝트 진행
-with tab3 :
-    col1, arrow1, col2, arrow2, col3, arrow3, col4 = st.columns(7)
-    
-    with col1 :
-        f = st.button(label = "데이터 수집", key = "first", type = "primary")
-    with arrow1 :
-        st.markdown("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;➡️&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
-    
-    with col2 :
-        s = st.button(label = "데이터 분석 앱 개발", key = "second", type = "primary")
-    with arrow2 :
-        st.markdown("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;➡️&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
-    
-    with col3 :
-        t = st.button(label = "데이터 마이닝", key = "third", type = "primary")
-    with arrow3 :
-        st.markdown("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;➡️&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
-    
-    with col4 :
-        fo = st.button(label = "보고서 작성", key = "fourth", type = "primary")
-    
-    if f :
-        st.markdown("""
-                    - 데이터 수집
-                        - 필요 데이터 : 국내 의류 산업 내 기업들의 연도별 기본 및 재무 정보
-                        - 구매처 : 나이스디앤비
-                    """)
-        st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
-        st.markdown("""
-                    - 구매 데이터 정보
-                        - 데이터 내 기업 수 : 10,353개
-                        - 주요 사업군 별 기업 수
-                    """)
-        st.image("src/JWi/industry_vis.png", use_column_width="auto")
-        st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
-        st.markdown("""
-                    - 구매 데이터 검수 
-                    """)
-        st.image("src/JWi/missing_value.png", use_column_width="auto")
-    
-    if s :
-        st.markdown("""
-                    - 목표 : 클라이언트가 실시간으로 활용할 수 있는 분석 앱 개발
-                    - RShiny 활용
-                    - shinyapps.io를 통해 배포
-                    """)
+    #(2). 분석 앱 개발
+    scol1, scol2 = st.columns([2,8])
+    with scol1 :
+        st.markdown(f'<div style="position:relative;">\
+                            <div style="border: 2px solid {"grey"}; padding: 10px; display: inline-block;">\
+                                <span style="font-weight:bold;">{"분석 앱 개발"}</span>\
+                            </div>\
+                        </div>', unsafe_allow_html=True)
+    with scol2 :
+        st.markdown(f"""
+            <div style="border: 2px solid orange; padding: 10px; max-width:800px;">
+                <div style="position:relative; text-align:left;">
+                    <p style="font-weight:normal;">{"〮클라이언트가 여러 시나리오 하에서 각종 통계분석/시각화를 진행할 수 있는 분석 앱 개발"}</p>
+                </div>
+                <div style="position:relative; text-align:center;">
+                    <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/JWi/app_vis.png" alt="image" style="max-width:100%; max-height:400px;">
+                </div>
+            </div>
+        """, unsafe_allow_html=True)
         
-        st.markdown("- 분석 앱 이미지")
-        st.image("src/JWi/app_vis1.png", use_column_width="auto")
-        st.markdown('<hr style="border: 0.5px dashed #ccc; margin: 20px 0;">', unsafe_allow_html=True)
-        st.image("src/JWi/app_vis2.png", use_column_width="auto")
-        st.markdown('<hr style="border: 0.5px dashed #ccc; margin: 20px 0;">', unsafe_allow_html=True)
-        st.image("src/JWi/app_vis3.png", use_column_width="auto")
-    
-    if t :
-        st.markdown("""
-                    - 목표 : COVID-19 이전과 이후 사이의 국내 의류산업 변동에 대한 인사이트 발견
-                    - 앙상블 기법(Ex. Randomforest, XGboost)을 이용해 COVID-19 이전과 이후를 나누는 주요 기업 재무정보 식별
-                    - 해당 기업 재무정보의 COVID-19 이전과 이후 시각화
-                    """)
-        
-        st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
-        
-        st.markdown("""
-                    - 주요 기업 건전성 지표 정의 : 한국은행 2019년 기업경영분석결과(해설 및 통계편) 참조
-                    - COVID-19 이전, 이후 기업 데이터 라벨링 후 ML 학습 진행
-                    - 변수 중요도(Variable Importance) 산출
-                    """)
-        
-        st.image("src/JWi/ai_vis1.png", use_column_width="auto")
-        st.image("src/JWi/ai_vis2.png", use_column_width="auto")
-    
-    if fo :
-        st.markdown("- 데이터마이닝 결과 기반 인사이트 보고서 작성")
-        column1, column2 = st.columns(2)
-        with column1 :
-            st.image("src/JWi/report_vis1.png", use_column_width="auto")
-        with column2 :
-            st.image("src/JWi/report_vis2.png", use_column_width="auto")
-        
+    st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
 
+    #(3). 인사이트 도출
+    tcol1, tcol2 = st.columns([2,8])
+    with tcol1 :
+        st.markdown(f'<div style="position:relative;">\
+                            <div style="border: 2px solid {"grey"}; padding: 10px; display: inline-block;">\
+                                <span style="font-weight:bold;">{"인사이트 도출"}</span>\
+                            </div>\
+                        </div>', unsafe_allow_html=True)
+    with tcol2 :
+        st.markdown(f"""
+            <div style="border: 2px solid orange; padding: 10px; max-width:800px;">
+                <div style="position:relative; text-align:left;">
+                    <p style="font-weight:normal;">{"〮ML(XgBoost, Randomforest)을 이용해 COVID-19 전/후를 나누는 주요 기업 건전성 지표 식별 및 인사이트 발견"}</p>
+                </div>
+                <div style="position:relative; text-align:center;">
+                    <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/JWi/insight_img.png" alt="image" style="max-width:100%; max-height:400px;">
+                </div>
+            </div>
+        """, unsafe_allow_html=True)
+        
+    st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
 
-#%% 기타
+#%%3. 코드
 import chardet
 
 with open("src/JWi/app.R", 'rb') as file:
@@ -126,6 +165,6 @@ encoding = result['encoding']
 with open("src/JWi/app.R", 'r', encoding=encoding) as file:
     app_code = file.read()
 
-with tab4 :
+with tab3 :
     with st.expander("RShiny 코드") :
         st.code(app_code, language = "r")

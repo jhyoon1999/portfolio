@@ -1,140 +1,197 @@
 import streamlit as st
 from st_pages import add_page_title
+import pandas as pd
 
 add_page_title(layout = "wide")
 
-tab1, tab2, tab3, tab4 = st.tabs(["개요", "WBS", "프로젝트 진행","기타"])
+tab1, tab2, tab3 = st.tabs(["요약", "프로젝트 진행","코드"])
 
-#%% 개요
+#%%1. 요약
 
-with tab1 : 
-    st.subheader('Ⅰ. 프로젝트 개요')
-    st.markdown("- 프로젝트명 : AI 기반 리서치 정성데이터 분석 플랫폼 구축")
-    st.markdown('- 프로젝트 기간 : 2023.04 ~ 2023.10')
-    st.markdown("""
-                - 문제상황
-                    - 많은 리서치 클라이언트는 고객의 직접적인 의견 수집을 요구하며, 정성문항은 각 설문조사의 30%를 차지함
-                    - 조사 후 정성문항 답변에 대한 라벨링(주제, 감성) 작업은 많은 시간과 비용을 요구
-                """)
-    st.markdown("""
-                - 프로젝트 발주 : AI바우처 사업에 수요기업으로 지원하여, 공급기업과 함께 정성데이터 분석 플랫폼 구축
-                """)
-    st.markdown("""
-                - 프로젝트 내용
-                    - 리서치 정성문항 통합 라벨링 체계 확립
-                    - LLM 기반 정성문항 분석(주제, 감성) AI 개발
-                    - 리서치 정성데이터 분석 플랫폼 개발
-                """)
-    st.markdown("- 주요 언어 : python")
+qualitative_summary = """
+<style>
+  table {
+      width: 100%;
+      border-collapse: collapse;
+  }
+  
+  th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+  }
+  
+  th {
+      background-color: #808080;
+      color: white;
+  }
+</style>
 
+<table>
+  <tr>
+    <th>진행기간</th>
+    <td>2023.04 ~ 2023.10</td> 
+  </tr>
+  <tr>
+    <th>프로젝트 내용</th>
+    <td colspan="2">텍스트 답변의 자동 라벨링 분석 플랫폼 구축</td> 
+  </tr>
+  <tr>
+    <th>사용언어</th>
+    <td>
+      <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/python_logo.png" alt="Python Image" width="80" height="50">
+    </td>
+  </tr>
+  <tr>
+    <th>데이터베이스</th>
+    <td>
+      <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/Mysql_logo.png" alt="MySQL Image" width="80" height="50">
+    </td>
+  <tr>
+    <th>BI 툴</th>
+    <td>
+      <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/powerbi_logo.png" alt="PowerBI Image" width="80" height="50">
+    </td>
+  </tr>
+</table>
+"""
+
+@st.cache_data
+def call_qualitative_result() :
+    qualitative_result = pd.read_excel("src/qualitative_AI/qualitative_result_example.xlsx")
+    return qualitative_result
+
+qualitative_result = call_qualitative_result()
+    
+with tab1 :
+    subcol1, subcol2 = st.columns([7,3])
+    with subcol1 :
+        st.subheader("Ⅰ. 프로젝트 요약")
+        st.markdown(qualitative_summary, unsafe_allow_html=True)
+    with subcol2 :
+        st.text("\n")
+        st.text("\n")
+        st.write("###### 담당업무(기여도)")
+        st.progress(value=40, text = "사업계획서 및 발표자료 작성(40%)")
+        st.progress(value=60, text = "학습 도메인/프로젝트 선정(60%)")
+        st.progress(value=80, text = "데이터 수집/관리(80%)")
+        st.progress(value=70, text = "통합 라벨링 체계 구축(70%)")
+    
     st.markdown('<hr style="border: 1px solid #ccc; margin: 20px 0;">', unsafe_allow_html=True)
     
-    st.subheader("Ⅱ. 담당업무")
-    st.markdown("""
-                - 사업계획서 작성
-                - 데이터 수집 및 검수
-                - 리서치 정성문항 통합 라벨링 체계 구성
-                - ML 학습결과 해석 및 피드백
-                """)
+    st.subheader("Ⅱ. WBS")
+    st.image("https://raw.githubusercontent.com/jhyoon1999/image_logo/master/qualitative_AI/WBS_qualitative.png", use_column_width="auto")
+    
     st.markdown('<hr style="border: 1px solid #ccc; margin: 20px 0;">', unsafe_allow_html=True)
+    
+    st.subheader("Ⅲ. 결과물(예시)")
+    st.dataframe(qualitative_result)
 
-#%% WBS
+#%%2. 프로젝트 진행
 
 with tab2 :
-    st.image("src/qualitative_AI/WBS_qualitative.png")
-
-
-#%% 프로젝트 진행
-
-with tab3 :
-    col1,arrow1, col2, arrow2,col3, arrow3, col4= st.columns(7)
+    #(1). 사업계획서 및 발표자료 작성
+    fcol1, fcol2 = st.columns([2,8])
+    with fcol1 :
+        st.markdown(f'<div style="position:relative;">\
+                            <div style="border: 2px solid {"grey"}; padding: 10px; display: inline-block;">\
+                                <span style="font-weight:bold;">{"사업계획서 및 발표자료 작성"}</span>\
+                            </div>\
+                        </div>', unsafe_allow_html=True)
+    with fcol2 :
+        st.markdown(f"""
+            <div style="border: 2px solid orange; padding: 10px; max-width:800px;">
+                <div style="position:relative; text-align:left;">
+                    <p style="font-weight:normal;">{"〮AI 바우처 사업 수주(수요기업)"}</p>
+                </div>
+                <div style="position:relative; text-align:center;">
+                    <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/qualitative_AI/paper_img.png" alt="image" style="max-width:100%; max-height:400px;">
+                </div>
+                <div style="position:relative; text-align:left;">
+                    <p style="font-weight:normal;">{"〮프로젝트 담당 역할"}</p>
+                    <p style="font-weight:normal; white-space: pre-wrap;">{"    - 수요기업 : 학습데이터 수집 및 통합 라벨링 체계 확립"}</p>
+                    <p style="font-weight:normal; white-space: pre-wrap;">{"    - 공급기업 : LLM 기반 정성문항 분석(주제, 감성) AI 개발"}</p>
+                </div>
+            </div>
+        """, unsafe_allow_html=True)
+            
+    st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
     
-    with col1 :
-        f = st.button(label = "사업계획서 작성", key = "first", type="primary")
-    
-    with arrow1 :
-        st.markdown("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;➡️&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
-
-    
-    with col2 :
-        s = st.button(label = "도메인 선정 및 데이터 수집", key = "second", type="primary")
-    
-    with arrow2 :
-        st.markdown("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;➡️&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
-
-    with col3 : 
-        t = st.button(label = "통합분류체계구성", key = "third", type="primary")
+    #(2). 학습 도메인 및 프로젝트 선정
+    scol1, scol2 = st.columns([2,8])
+    with scol1 :
+        st.markdown(f'<div style="position:relative;">\
+                            <div style="border: 2px solid {"grey"}; padding: 10px; display: inline-block;">\
+                                <span style="font-weight:bold;">{"학습 도메인 및 프로젝트 선정"}</span>\
+                            </div>\
+                        </div>', unsafe_allow_html=True)
+    with scol2 :
+        st.markdown(f"""
+            <div style="border: 2px solid orange; padding: 10px; max-width:800px;">
+                <div style="position:relative; text-align:left;">
+                    <p style="font-weight:normal;">{"〮5개 도메인과 그 하위 445개 프로젝트 선정"}</p>
+                    <p style="font-weight:normal; white-space: pre-wrap;">{"      - 포괄성 : 많은 타도메인, 타프로젝트를 포괄할 수 있는 도메인"}</p>
+                    <p style="font-weight:normal; white-space: pre-wrap;">{"      - 미래지향성 : 지속가능성이 높은 클라이언트 보유 도메인"}</p>
+                    <p style="font-weight:normal; white-space: pre-wrap;">{"      - 공통성 : 공통적인 질문 및 답변이 많이 발생하는 도메인"}</p>
+                    <p style="font-weight:normal; white-space: pre-wrap;">{"      - 완결성 : 데이터 완성도(Ex. 결측치)가 뛰어난 데이터를 보유한 프로젝트"}</p>
+                </div>
+                <div style="position:relative; text-align:center;">
+                    <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/qualitative_AI/table_project.png" alt="image" style="max-width:100%; max-height:400px;">
+                </div>
+            </div>
+        """, unsafe_allow_html=True)
         
-    with arrow3 :
-        st.markdown("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;➡️&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
+    st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
     
-    with col4 : 
-        fo = st.button(label = "운영환경구축", key = "fourth")
+    #(3). 데이터 수집/관리
+    tcol1, tcol2 = st.columns([2,8])
+    with tcol1 :
+        st.markdown(f'<div style="position:relative;">\
+                            <div style="border: 2px solid {"grey"}; padding: 10px; display: inline-block;">\
+                                <span style="font-weight:bold;">{"데이터 수집/관리"}</span>\
+                            </div>\
+                        </div>', unsafe_allow_html=True)
+    with tcol2 :
+        st.markdown(f"""
+            <div style="border: 2px solid orange; padding: 10px; max-width:800px;">
+                <div style="position:relative; text-align:left;">
+                    <p style="font-weight:normal;">{"〮학습 대상 프로젝트의 데이터 수집 및 검수"}</p>
+                    <p style="font-weight:normal;">{"〮실시간수집현황을확인할수있는데이터관리대시보드작성및운영"}</p>
+                </div>
+                <div style="position:relative; text-align:center;">
+                    <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/qualitative_AI/powerbi_process.png" alt="image" style="max-width:100%; max-height:400px;">
+                </div>
+            </div>
+        """, unsafe_allow_html=True)
     
-    # 프로젝트 목표 및 사업계획서 작성
-    if f :
-        st.markdown("""
-                    - 프로젝트 목표
-                        - 리서치 정성문항 통합 라벨링 체계 확립 : 수요기업 담당
-                        - LLM 기반 정성문항 분석(주제, 감성) AI 개발 : 공급기업 담당
-                        - 리서치 정성데이터 분석 플랫폼 개발 : 공통
-                    """)
-        st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
-        st.markdown("""
-                    - 사업계획서 작성 및 발표(기여도 : 40%)
-                    """)
-        column1, column2 = st.columns(2)
-        
-        with column1 :
-            st.image("src/qualitative_AI/plan_vis.png")
-        
-        with column2 :
-            st.image("src/qualitative_AI/ppt_vis.png")
+    st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
     
-    # 도메인 선정 및 데이터 수집
-    if s :
-        st.markdown("""
-                    - 목표 : AI 학습 대상 리서치 도메인 및 프로젝트 선정
-                    - 도메인 선정기준
-                        - 포괄성 : 많은 타도메인, 타프로젝트를 포괄할 수 있는 포괄성이 높은 도메인
-                        - 미래지향성 : 지속가능성이 높은 클라이언트 보유 도메인
-                        - 공통성 : 공통적인 질문 및 답변이 많이 발생하는 도메인
-                    - 프로젝트 선정기준
-                        - 유사성 : 도메인 내 비슷한 질문 및 답변을 갖는 프로젝트
-                        - 완결성 : 데이터 완성도(Ex. 결측치)가 뛰어난 데이터를 보유한 프로젝트
-                    """)
-        st.markdown("- 5개 도메인과 그 하위 445개 프로젝트 선정 및 수집")
-        _,col1,_ = st.columns([2,6,2])
-        with col1 :
-            st.image("src/qualitative_AI/table_project.png", use_column_width="auto")
-        
-        st.markdown("- 실시간 데이터 관리 대시보드")
-        
-        _,col2,_ = st.columns([2,6,2])
-        with col2 :
-            st.image("src/qualitative_AI/management.PNG", use_column_width="auto")
+    #(4). 통합 라벨링 체계 구성
+    focol1, focol2 = st.columns([2,8])
+    with focol1 :
+        st.markdown(f'<div style="position:relative;">\
+                            <div style="border: 2px solid {"grey"}; padding: 10px; display: inline-block;">\
+                                <span style="font-weight:bold;">{"통합 라벨링 체계 구성"}</span>\
+                            </div>\
+                        </div>', unsafe_allow_html=True)
+    with focol2 :
+        st.markdown(f"""
+            <div style="border: 2px solid orange; padding: 10px; max-width:800px;">
+                <div style="position:relative; text-align:left;">
+                    <p style="font-weight:normal;">{"〮각 프로젝트 단위 독자적 라벨링 체계 존재 → 각 도메인 별 통합 라벨링 체계 구축"}</p>
+                </div>
+                <div style="position:relative; text-align:center;">
+                    <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/qualitative_AI/label_process.png" alt="image" style="max-width:100%; max-height:400px;">
+                </div>
+            </div>
+        """, unsafe_allow_html=True)
+    
+    st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
 
-    # 통합분류체계구성
-    
-    if t :
-        st.markdown("""
-                    - 문제상황 : 프로젝트 단위로 독자적인 정성문항 답변 분류체계 존재
-                    - 목표 : 각 도메인 별로 AI가 학습할 통합 분류체계 구성
-                    - 프로세스
-                    """)
-        
-        _,col1,_ = st.columns([2,6,2])
-        with col1 :
-            st.image("src/qualitative_AI/process_ai.png")
-
-        st.markdown("""
-                    - 결과 : 토픽 분류 AI 학습이 가능한 도메인 별 통합분류체계 구성완료
-                    """)
-
-#%% 기타
+#%%3. 코드
 with open("src/qualitative_AI/cleaning.py", 'r', encoding='utf-8') as cleaning_read:
     cleaning_code = cleaning_read.read()
 
-with tab4 :
+with tab3 :
     with st.expander("수집 데이터 검수 코드") :
         st.code(cleaning_code, language = "python")
