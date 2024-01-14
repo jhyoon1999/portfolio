@@ -4,4 +4,5 @@ pandas==2.1.2
 st-pages==0.4.5
 streamlit==1.28.0
 streamlit-mermaid==0.2.0
-request
+requests==2.31.0
+requests-oauthlib==1.3.1
