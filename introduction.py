@@ -59,6 +59,7 @@ with tab1 :
         st.write('주소 : 경기도 파주시 문산읍')
         st.write('Email : wjdgks1999@naver.com')
         st.write('Phone : 010-2280-1999')
+        st.write("GitHub : https://github.com/jhyoon1999")
     
     st.markdown('<hr style="border: 1px solid #ccc; margin: 20px 0;">', unsafe_allow_html=True)
     
