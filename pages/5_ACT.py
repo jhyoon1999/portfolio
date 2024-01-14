@@ -60,13 +60,13 @@ with tab1 :
     st.markdown('<hr style="border: 1px solid #ccc; margin: 20px 0;">', unsafe_allow_html=True)
     
     st.subheader("Ⅱ. WBS")
-    st.image("https://raw.githubusercontent.com/jhyoon1999/image_logo/master/ACT/WBS_ACT.png", use_column_width="auto")
+    st.image("https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/ACT/WBS_ACT.png", use_column_width="auto")
     
     st.markdown('<hr style="border: 1px solid #ccc; margin: 20px 0;">', unsafe_allow_html=True)
     
-    st.subheader("Ⅲ. 결과물(예시)")
+    st.subheader("Ⅲ. 결과물")
     with st.expander("적응적 인지검사 시스템 ACT 출시") :
-        st.image("https://raw.githubusercontent.com/jhyoon1999/image_logo/master/ACT/ACT_homepage.png", use_column_width="auto")
+        st.image("https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/ACT/ACT_homepage.png", use_column_width="auto")
 
 #%%2. 프로젝트 진행
 
@@ -86,7 +86,7 @@ with tab2 :
                     <p style="font-weight:normal;">{"〮수집 데이터의 통계적 가정 검증 → 의사결정나무(Decision Tree) 기반 개발이 적절"}</p>
                 </div>
                 <div style="position:relative; text-align:center;">
-                    <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/ACT/assumption_result.png" alt="image" style="max-width:100%; max-height:400px;">
+                    <img src="https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/ACT/assumption_result.png" alt="image" style="max-width:100%; max-height:400px;">
                 </div>
             </div>
         """, unsafe_allow_html=True)
@@ -108,7 +108,7 @@ with tab2 :
                     <p style="font-weight:normal;">{"〮Yan(2004)의 Merged Decision Tree 구현 : 데이터 크기로 인한 과적합(overfit) 최소화"}</p>
                 </div>
                 <div style="position:relative; text-align:center;">
-                    <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/ACT/merged_tree.png" alt="image" style="max-width:100%; max-height:400px;">
+                    <img src="https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/ACT/merged_tree.png" alt="image" style="max-width:100%; max-height:400px;">
                 </div>
             </div>
         """, unsafe_allow_html=True)
@@ -130,7 +130,7 @@ with tab2 :
                     <p style="font-weight:normal;">{"〮9개 인지영역 별 최선의 알고리즘 탐색 및 선택"}</p>
                 </div>
                 <div style="position:relative; text-align:center;">
-                    <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/ACT/algorithm_comparison.png" alt="image" style="max-width:100%; max-height:400px;">
+                    <img src="https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/ACT/algorithm_comparison.png" alt="image" style="max-width:100%; max-height:400px;">
                 </div>
             </div>
         """, unsafe_allow_html=True)
@@ -152,7 +152,7 @@ with tab2 :
                     <p style="font-weight:normal;">{"〮보고서 및 Working Technical Document 작성"}</p>
                 </div>
                 <div style="position:relative; text-align:center;">
-                    <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/ACT/document_img.png" alt="image" style="max-width:100%; max-height:400px;">
+                    <img src="https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/ACT/document_img.png" alt="image" style="max-width:100%; max-height:400px;">
                 </div>
             </div>
         """, unsafe_allow_html=True)
@@ -160,9 +160,17 @@ with tab2 :
     st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
 
 #%%3. 코드
-with open("src/ACT/merged_code.r", "r", encoding = "utf-8") as r_read :
-    r_code = r_read.read()
+import requests
+
+@st.cache_resource
+def call_merged_tree_r() :
+    github_url = "https://raw.githubusercontent.com/jhyoon1999/5_ACT_Development_of_Adaptive_Cognitive_Test_System/master/Merged_Decision_Tree_%EA%B5%AC%ED%98%84_Code.r"
+    response = requests.get(github_url)
+    code = response.text
+    return code
+
+merged_tree_code = call_merged_tree_r()
 
 with tab3 :     
-    with st.expander("Merged Decision Tree  구현 코드") :
-        st.code(r_code, language = "r")
+    with st.expander("Merged Decision Tree 구현 코드") :
+        st.code(merged_tree_code, language = "r")

@@ -39,13 +39,13 @@ JWI_summary = """
   <tr>
     <th>사용언어</th>
     <td>
-      <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/R_logo.jpg" alt="R Image" width="80" height="50">
+      <img src="https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/R_logo.jpg" alt="R Image" width="80" height="50">
     </td>
   </tr>
   <tr>
     <th>앱 개발</th>
     <td>
-      <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/shiny_logo.png" alt="Shiny Image" width="80" height="50">
+      <img src="https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/shiny_logo.png" alt="Shiny Image" width="80" height="50">
     </td>
 </table>
 """
@@ -67,15 +67,15 @@ with tab1 :
     st.markdown('<hr style="border: 1px solid #ccc; margin: 20px 0;">', unsafe_allow_html=True)
     
     st.subheader("Ⅱ. WBS")
-    st.image("https://raw.githubusercontent.com/jhyoon1999/image_logo/master/JWi/WBS_JWi.png", use_column_width="auto")
+    st.image("https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/JWi/WBS_JWi.png", use_column_width="auto")
     
     st.markdown('<hr style="border: 1px solid #ccc; margin: 20px 0;">', unsafe_allow_html=True)
     
     st.subheader("Ⅲ. 결과물")
     with st.expander("01)분석 앱") :
-        st.image("https://raw.githubusercontent.com/jhyoon1999/image_logo/master/JWi/app_vis.png", use_column_width="auto")
+        st.image("https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/JWi/app_vis.png", use_column_width="auto")
     with st.expander("02)인사이트 보고서") :
-        st.image("https://raw.githubusercontent.com/jhyoon1999/image_logo/master/JWi/insight_img.png", use_column_width="auto")
+        st.image("https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/JWi/insight_img.png", use_column_width="auto")
 
 #%%2. 프로젝트 진행
 with tab2 :
@@ -97,13 +97,13 @@ with tab2 :
                     <p style="font-weight:normal;">{"〮데이터 검수"}</p>
                 </div>
                 <div style="position:relative; text-align:center;">
-                    <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/JWi/missing_value.png" alt="image" style="max-width:100%; max-height:400px;">
+                    <img src="https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/JWi/missing_value.png" alt="image" style="max-width:100%; max-height:400px;">
                 </div>
                 <div style="position:relative; text-align:left;">
                     <p style="font-weight:normal;">{"〮기업 건전성 변수 생성"}</p>
                 </div>
                 <div style="position:relative; text-align:center;">
-                    <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/JWi/variable_img.png" alt="image" style="max-width:100%; max-height:400px;">
+                    <img src="https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/JWi/variable_img.png" alt="image" style="max-width:100%; max-height:400px;">
                 </div>
             </div>
         """, unsafe_allow_html=True)
@@ -125,7 +125,7 @@ with tab2 :
                     <p style="font-weight:normal;">{"〮클라이언트가 여러 시나리오 하에서 각종 통계분석/시각화를 진행할 수 있는 분석 앱 개발"}</p>
                 </div>
                 <div style="position:relative; text-align:center;">
-                    <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/JWi/app_vis.png" alt="image" style="max-width:100%; max-height:400px;">
+                    <img src="https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/JWi/app_vis.png" alt="image" style="max-width:100%; max-height:400px;">
                 </div>
             </div>
         """, unsafe_allow_html=True)
@@ -147,7 +147,7 @@ with tab2 :
                     <p style="font-weight:normal;">{"〮ML(XgBoost, Randomforest)을 이용해 COVID-19 전/후를 나누는 주요 기업 건전성 지표 식별 및 인사이트 발견"}</p>
                 </div>
                 <div style="position:relative; text-align:center;">
-                    <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/JWi/insight_img.png" alt="image" style="max-width:100%; max-height:400px;">
+                    <img src="https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/JWi/insight_img.png" alt="image" style="max-width:100%; max-height:400px;">
                 </div>
             </div>
         """, unsafe_allow_html=True)
@@ -155,16 +155,17 @@ with tab2 :
     st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
 
 #%%3. 코드
-import chardet
+import requests
 
-with open("src/JWi/app.R", 'rb') as file:
-    result = chardet.detect(file.read())
+@st.cache_resource
+def call_shiny_app_r() :
+    github_url = "https://raw.githubusercontent.com/jhyoon1999/3_Analysis_of_the_domestic_clothing_industry/master/%EB%B6%84%EC%84%9D%20%EC%95%B1/app.R"
+    response = requests.get(github_url)
+    code = response.text
+    return code
 
-encoding = result['encoding']
-
-with open("src/JWi/app.R", 'r', encoding=encoding) as file:
-    app_code = file.read()
+shiny_app_code = call_shiny_app_r()
 
 with tab3 :
-    with st.expander("RShiny 코드") :
-        st.code(app_code, language = "r")
+    with st.expander("분석 앱 개발 코드") :
+        st.code(shiny_app_code, language = "r")

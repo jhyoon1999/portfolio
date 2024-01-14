@@ -39,18 +39,18 @@ qualitative_summary = """
   <tr>
     <th>사용언어</th>
     <td>
-      <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/python_logo.png" alt="Python Image" width="80" height="50">
+      <img src="https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/python_logo.png" alt="Python Image" width="80" height="50">
     </td>
   </tr>
   <tr>
     <th>데이터베이스</th>
     <td>
-      <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/Mysql_logo.png" alt="MySQL Image" width="80" height="50">
+      <img src="https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/Mysql_logo.png" alt="MySQL Image" width="80" height="50">
     </td>
   <tr>
     <th>BI 툴</th>
     <td>
-      <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/powerbi_logo.png" alt="PowerBI Image" width="80" height="50">
+      <img src="https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/powerbi_logo.png" alt="PowerBI Image" width="80" height="50">
     </td>
   </tr>
 </table>
@@ -80,7 +80,7 @@ with tab1 :
     st.markdown('<hr style="border: 1px solid #ccc; margin: 20px 0;">', unsafe_allow_html=True)
     
     st.subheader("Ⅱ. WBS")
-    st.image("https://raw.githubusercontent.com/jhyoon1999/image_logo/master/qualitative_AI/WBS_qualitative.png", use_column_width="auto")
+    st.image("https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/qualitative_AI/WBS_qualitative.png", use_column_width="auto")
     
     st.markdown('<hr style="border: 1px solid #ccc; margin: 20px 0;">', unsafe_allow_html=True)
     
@@ -105,7 +105,7 @@ with tab2 :
                     <p style="font-weight:normal;">{"〮AI 바우처 사업 수주(수요기업)"}</p>
                 </div>
                 <div style="position:relative; text-align:center;">
-                    <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/qualitative_AI/paper_img.png" alt="image" style="max-width:100%; max-height:400px;">
+                    <img src="https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/qualitative_AI/paper_img.png" alt="image" style="max-width:100%; max-height:400px;">
                 </div>
                 <div style="position:relative; text-align:left;">
                     <p style="font-weight:normal;">{"〮프로젝트 담당 역할"}</p>
@@ -136,7 +136,7 @@ with tab2 :
                     <p style="font-weight:normal; white-space: pre-wrap;">{"      - 완결성 : 데이터 완성도(Ex. 결측치)가 뛰어난 데이터를 보유한 프로젝트"}</p>
                 </div>
                 <div style="position:relative; text-align:center;">
-                    <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/qualitative_AI/table_project.png" alt="image" style="max-width:100%; max-height:400px;">
+                    <img src="https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/qualitative_AI/table_project.png" alt="image" style="max-width:100%; max-height:400px;">
                 </div>
             </div>
         """, unsafe_allow_html=True)
@@ -159,7 +159,7 @@ with tab2 :
                     <p style="font-weight:normal;">{"〮실시간수집현황을확인할수있는데이터관리대시보드작성및운영"}</p>
                 </div>
                 <div style="position:relative; text-align:center;">
-                    <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/qualitative_AI/powerbi_process.png" alt="image" style="max-width:100%; max-height:400px;">
+                    <img src="https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/qualitative_AI/powerbi_process.png" alt="image" style="max-width:100%; max-height:400px;">
                 </div>
             </div>
         """, unsafe_allow_html=True)
@@ -181,7 +181,7 @@ with tab2 :
                     <p style="font-weight:normal;">{"〮각 프로젝트 단위 독자적 라벨링 체계 존재 → 각 도메인 별 통합 라벨링 체계 구축"}</p>
                 </div>
                 <div style="position:relative; text-align:center;">
-                    <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/qualitative_AI/label_process.png" alt="image" style="max-width:100%; max-height:400px;">
+                    <img src="https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/qualitative_AI/label_process.png" alt="image" style="max-width:100%; max-height:400px;">
                 </div>
             </div>
         """, unsafe_allow_html=True)
@@ -189,9 +189,40 @@ with tab2 :
     st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
 
 #%%3. 코드
-with open("src/qualitative_AI/cleaning.py", 'r', encoding='utf-8') as cleaning_read:
-    cleaning_code = cleaning_read.read()
+import requests
+
+@st.cache_resource
+def call_cleaning_python() :
+    github_url = "https://raw.githubusercontent.com/jhyoon1999/2_AI_Qualitative_Data_Labeling_Platform/master/%EC%88%98%EC%A7%91%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EA%B2%80%EC%88%98%20%EC%BD%94%EB%93%9C.py"
+    response = requests.get(github_url)
+    code = response.text
+    return code
+
+@st.cache_resource
+def call_preprocessing_python() :
+    github_url = "https://raw.githubusercontent.com/jhyoon1999/2_AI_Qualitative_Data_Labeling_Platform/master/%ED%85%8D%EC%8A%A4%ED%8A%B8_%EC%A0%84%EC%B2%98%EB%A6%AC.py"
+    response = requests.get(github_url)
+    code = response.text
+    return code
+
+@st.cache_resource
+def call_clustering_python() :
+    github_url = "https://raw.githubusercontent.com/jhyoon1999/2_AI_Qualitative_Data_Labeling_Platform/master/%ED%81%B4%EB%9F%AC%EC%8A%A4%ED%84%B0%EB%A7%81_DBSCAN.py"
+    response = requests.get(github_url)
+    code = response.text
+    return code
+
+cleaning_code = call_cleaning_python()
+preprocessing_code = call_preprocessing_python()
+clustering_code = call_clustering_python()
 
 with tab3 :
+    st.write("#### 1. 데이터 검수")
     with st.expander("수집 데이터 검수 코드") :
         st.code(cleaning_code, language = "python")
+    
+    st.write("#### 2. 데이터 분석")
+    with st.expander("텍스트 전처리") :
+        st.code(preprocessing_code, language = "python")
+    with st.expander("DBSCAN 클러스터링") :
+        st.code(clustering_code, language = "python")
