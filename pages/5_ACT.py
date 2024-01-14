@@ -37,7 +37,7 @@ apartment_summary = """
   <tr>
     <th>사용언어</th>
     <td>
-      <img src="https://raw.githubusercontent.com/jhyoon1999/image_logo/master/R_logo.jpg" alt="R Image" width="80" height="50">
+      <img src="https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/R_logo.jpg" alt="R Image" width="80" height="50">
     </td>
   </tr>
 </table>
