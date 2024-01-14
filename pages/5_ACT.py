@@ -65,7 +65,7 @@ with tab1 :
     st.markdown('<hr style="border: 1px solid #ccc; margin: 20px 0;">', unsafe_allow_html=True)
     
     st.subheader("Ⅲ. 결과물(예시)")
-    with st.expander("데이터 관리 대시보드") :
+    with st.expander("적응적 인지검사 시스템 ACT 출시") :
         st.image("https://raw.githubusercontent.com/jhyoon1999/image_logo/master/ACT/ACT_homepage.png", use_column_width="auto")
 
 #%%2. 프로젝트 진행
