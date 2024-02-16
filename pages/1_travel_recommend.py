@@ -68,7 +68,7 @@ with tab1 :
     st.markdown('<hr style="border: 1px solid #ccc; margin: 20px 0;">', unsafe_allow_html=True)
     
     st.subheader("Ⅱ. 프로젝트 개요")
-    st.image("src/travel_recommend\overview_travel.png", use_column_width="auto") ##추후 수정##
+    st.image("src/travel_recommend/overview_travel.png", use_column_width="auto") ##추후 수정##
     
     st.subheader("Ⅲ. WBS")
     st.image("https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/travel_recommend/WBS_recommend.png", use_column_width="auto")
