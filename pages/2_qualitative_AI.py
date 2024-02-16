@@ -78,106 +78,83 @@ with tab1 :
     
     st.markdown('<hr style="border: 1px solid #ccc; margin: 20px 0;">', unsafe_allow_html=True)
     
-    st.subheader("Ⅱ. WBS")
+    st.subheader("Ⅱ. 프로젝트 개요")
+    st.image("https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/qualitative_AI/overview_qualitative.png", use_column_width="auto")
+    
+
+    st.markdown('<hr style="border: 1px solid #ccc; margin: 20px 0;">', unsafe_allow_html=True)
+    
+    st.subheader("Ⅲ. WBS")
     st.image("https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/qualitative_AI/WBS_qualitative.png", use_column_width="auto")
     
     st.markdown('<hr style="border: 1px solid #ccc; margin: 20px 0;">', unsafe_allow_html=True)
     
-    st.subheader("Ⅲ. 결과물(예시)")
+    st.subheader("IV. 결과물(예시)")
     st.dataframe(qualitative_result)
 
 #%%2. 프로젝트 진행
 
 with tab2 :
-    #(1). 사업계획서 및 발표자료 작성
+    #(1). 도메인/프로젝트 선정
     fcol1, fcol2 = st.columns([2,8])
     with fcol1 :
         st.markdown(f'<div style="position:relative;">\
                             <div style="border: 2px solid {"grey"}; padding: 10px; display: inline-block;">\
-                                <span style="font-weight:bold;">{"사업계획서 및 발표자료 작성"}</span>\
+                                <span style="font-weight:bold;">{"도메인/프로젝트 선정"}</span>\
                             </div>\
                         </div>', unsafe_allow_html=True)
     with fcol2 :
         st.markdown(f"""
             <div style="border: 2px solid orange; padding: 10px; max-width:800px;">
                 <div style="position:relative; text-align:left;">
-                    <p style="font-weight:normal;">{"〮AI 바우처 사업 수주(수요기업)"}</p>
-                </div>
-                <div style="position:relative; text-align:center;">
-                    <img src="https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/qualitative_AI/paper_img.png" alt="image" style="max-width:100%; max-height:400px;">
-                </div>
-                <div style="position:relative; text-align:left;">
-                    <p style="font-weight:normal;">{"〮프로젝트 담당 역할"}</p>
-                    <p style="font-weight:normal; white-space: pre-wrap;">{"    - 수요기업 : 학습데이터 수집 및 통합 라벨링 체계 확립"}</p>
-                    <p style="font-weight:normal; white-space: pre-wrap;">{"    - 공급기업 : LLM 기반 정성문항 분석(주제, 감성) AI 개발"}</p>
-                </div>
-            </div>
-        """, unsafe_allow_html=True)
-            
-    st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
-    
-    #(2). 학습 도메인 및 프로젝트 선정
-    scol1, scol2 = st.columns([2,8])
-    with scol1 :
-        st.markdown(f'<div style="position:relative;">\
-                            <div style="border: 2px solid {"grey"}; padding: 10px; display: inline-block;">\
-                                <span style="font-weight:bold;">{"학습 도메인 및 프로젝트 선정"}</span>\
-                            </div>\
-                        </div>', unsafe_allow_html=True)
-    with scol2 :
-        st.markdown(f"""
-            <div style="border: 2px solid orange; padding: 10px; max-width:800px;">
-                <div style="position:relative; text-align:left;">
-                    <p style="font-weight:normal;">{"〮5개 도메인과 그 하위 445개 프로젝트 선정"}</p>
-                    <p style="font-weight:normal; white-space: pre-wrap;">{"      - 포괄성 : 많은 타도메인, 타프로젝트를 포괄할 수 있는 도메인"}</p>
-                    <p style="font-weight:normal; white-space: pre-wrap;">{"      - 미래지향성 : 지속가능성이 높은 클라이언트 보유 도메인"}</p>
-                    <p style="font-weight:normal; white-space: pre-wrap;">{"      - 공통성 : 공통적인 질문 및 답변이 많이 발생하는 도메인"}</p>
-                    <p style="font-weight:normal; white-space: pre-wrap;">{"      - 완결성 : 데이터 완성도(Ex. 결측치)가 뛰어난 데이터를 보유한 프로젝트"}</p>
+                    <p style="font-weight:bold;">{"목적 : LLM모델이 학습할 리서치의 도메인과 그 하위 프로젝트 선정"}</p>
                 </div>
                 <div style="position:relative; text-align:center;">
                     <img src="https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/qualitative_AI/table_project.png" alt="image" style="max-width:100%; max-height:400px;">
                 </div>
             </div>
         """, unsafe_allow_html=True)
-        
+            
     st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
     
-    #(3). 데이터 수집/관리
-    tcol1, tcol2 = st.columns([2,8])
-    with tcol1 :
+    #(2). 데이터 수집/검수
+    scol1, scol2 = st.columns([2,8])
+    with scol1 :
         st.markdown(f'<div style="position:relative;">\
                             <div style="border: 2px solid {"grey"}; padding: 10px; display: inline-block;">\
-                                <span style="font-weight:bold;">{"데이터 수집/관리"}</span>\
+                                <span style="font-weight:bold;">{"데이터 수집/검수"}</span>\
                             </div>\
                         </div>', unsafe_allow_html=True)
-    with tcol2 :
+    with scol2 :
         st.markdown(f"""
             <div style="border: 2px solid orange; padding: 10px; max-width:800px;">
                 <div style="position:relative; text-align:left;">
-                    <p style="font-weight:normal;">{"〮학습 대상 프로젝트의 데이터 수집 및 검수"}</p>
-                    <p style="font-weight:normal;">{"〮실시간수집현황을확인할수있는데이터관리대시보드작성및운영"}</p>
+                        <p style="font-weight:bold;">{"목적 : 선정한 프로젝트의 데이터를 수집후, 학습 가능한 구조로 변환 및 검수"}</p>\
+                        <p style="font-weight:normal;">{"〮각 도메인의 프로젝트 로컬 데이터를 수집 후 Python을 이용해 구조 변환 및 검수 진행"}</p>\
+                        <p style="font-weight:normal;">{"〮실시간 수집 현황을 확인할 수 있는 수집 데이터 관리 대시보드 작성 및 운영"}</p>\
                 </div>
                 <div style="position:relative; text-align:center;">
                     <img src="https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/qualitative_AI/powerbi_process.png" alt="image" style="max-width:100%; max-height:400px;">
                 </div>
             </div>
         """, unsafe_allow_html=True)
-    
+        
     st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
     
-    #(4). 통합 라벨링 체계 구성
+    #(4). 통합 라벨 체계 구성
     focol1, focol2 = st.columns([2,8])
     with focol1 :
         st.markdown(f'<div style="position:relative;">\
                             <div style="border: 2px solid {"grey"}; padding: 10px; display: inline-block;">\
-                                <span style="font-weight:bold;">{"통합 라벨링 체계 구성"}</span>\
+                                <span style="font-weight:bold;">{"통합 라벨 체계 구성"}</span>\
                             </div>\
                         </div>', unsafe_allow_html=True)
     with focol2 :
         st.markdown(f"""
             <div style="border: 2px solid orange; padding: 10px; max-width:800px;">
                 <div style="position:relative; text-align:left;">
-                    <p style="font-weight:normal;">{"〮각 프로젝트 단위 독자적 라벨링 체계 존재 → 각 도메인 별 통합 라벨링 체계 구축"}</p>
+                    <p style="font-weight:bold;">{"목적 : 각 도메인 별로 학습 가능한 수준의 통합 라벨 체계 구축"}</p>\
+                    <p style="font-weight:normal;">{"〮각 프로젝트 별 독자적인 라벨 체계 존재 → 타부서와의 협력을 통해 각 도메인 별 통합 라벨 체계 구축"}</p>
                 </div>
                 <div style="position:relative; text-align:center;">
                     <img src="https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/qualitative_AI/label_process.png" alt="image" style="max-width:100%; max-height:400px;">
