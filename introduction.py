@@ -6,11 +6,12 @@ show_pages(
     [
         Page("introduction.py", "소개", "🏠"),        
         Section(name="참여 프로젝트", icon=":pig:"),
-        Page("pages/1_travel_recommend.py", "제주도 여행지 추천 웹서비스 개발", icon=":one:"),
+        Page("pages/1_travel_recommend.py", "제주도 관광지 추천 웹서비스 개발", icon=":one:"),
         Page("pages/2_qualitative_AI.py", "AI기반 리서치 정성데이터 분석플램폼 구축", icon=":two:"),
         Page("pages/3_clothes_industry.py", "국내 의류산업 현황 분석 및 분석 앱 개발", icon=":three:"),
-        Page("pages/4_apartment_AI.py", "AI 기반 맞춤형 아파트 분석 추천시스템 개발", icon=":four:"),
-        Page("pages/5_ACT.py", "ML을 활용한 종합 적응적 인지검사 시스템 ACT 개발", icon=":five:"),
+        Page("pages/5_ACT.py", "ML을 활용한 종합 적응적 인지검사 시스템 ACT 개발", icon=":four:"),
+        Section(name="서브 프로젝트", icon=":pig:"),
+        Page("pages/4_apartment_AI.py", "AI 기반 맞춤형 아파트 분석 추천시스템 개발", icon=":one:"),
     ]
 )
 
@@ -132,62 +133,38 @@ with tab2 :
     
     st.subheader('참여 프로젝트')
     
-    with st.expander("제주도 여행지 추천 웹서비스 개발(2023.09 ~ 2023.11)") :
+    with st.expander("제주도 관광지 추천 웹서비스 개발") :
         st.markdown("- 구분 : 개인 프로젝트")
-        st.markdown("- 참여기간 : 2023.09 ~ 2023.11")
-        st.markdown("- 프로젝트 요약 : AI 기반 개인 맞춤형 제주도 여행지 추천 웹서비스 개발")
-        st.markdown("""- 담당 업무
-    - 데이터 수집/가공
-    - 데이터 분석
-    - AI 기반 추천시스템 개발
-    - AI 연동 API 개발
-                    """)
+        st.markdown("- 참여기간 : 2023.09 ~ 2023.11 (3개월)")
+        st.markdown("- 프로젝트 요약 : AI 기반 개인 맞춤형 제주도 관광지 추천 웹서비스 개발")
+        st.markdown("- 담당 업무 : 데이터 수집, 데이터 분석, AI기반 추천시스템 개발, API 개발")
+        st.markdown("- 성과 : 최소기능제품(https://jejuai.web.app/#/) 개발 완료")
+        st.markdown("- 기술 : MySQL, Python, FastAPI, AWS")
     
-    with st.expander("AI 기반 리서치 정성(Qualitative)데이터 분석 플랫폼 구축(2023.04 ~ 2023.07)") :
+    with st.expander("AI 기반 리서치 정성(Qualitative)데이터 분석 플랫폼 구축") :
         st.markdown("- 구분 : 팀 프로젝트")
-        st.markdown("- 참여기간 : 2023.04 ~ 2023.07")
+        st.markdown("- 참여기간 : 2023.04 ~ 2023.07 (4개월)")
         st.markdown("- 프로젝트 요약 : 시장 및 여론조사에서의 정성문항 답변에 대한 자동 라벨링 플랫폼 개발")
-        st.markdown("""- 담당 업무
-    - 사업계획서 및 발표자료 작성
-    - PM(Project Manager) 역할 수행
-    - 도메인 및 학습 대상 데이터 선정
-    - 수집 데이터 관리 대시보드 작성 및 운영
-    - 리서치 정성 답변의 학습 라벨링 체계 확립
-    - ML 학습 결과 해석 및 피드백
-                    """)
+        st.markdown("- 담당업무 : 사업계획서 및 발표자료 작성, 도메인 및 학습 대상 데이터 선정 및 대시보드 운영, 학습 라벨링 체계 확립")
+        st.markdown("- 성과 : 사업비 3억원 사업 수주 성공, 학습 대상 데이터 선정 완료, 학습 대상 통합 라벨링 체계 확립 완료")
+        st.markdown("- 기술 : MySQL, Python, Power BI")
     
-    with st.expander("국내 의류산업 현황분석 및 분석앱 개발(2022.06 ~ 2022.12)") :
+    with st.expander("국내 의류산업 현황분석 및 분석앱 개발") :
         st.markdown("- 구분 : 팀 프로젝트")
-        st.markdown("- 참여기간 : 2022.06 ~ 2022.12")
+        st.markdown("- 참여기간 : 2022.06 ~ 2022.12 (6개월)")
         st.markdown("- 프로젝트 요약 : 국내 의류사업군 데이터 분석을 통한 국내 의류사업 실태 인사이트 발굴")
-        st.markdown("""- 담당 업무
-    - 데이터 수집/가공
-    - 데이터 분석
-    - 분석 앱 개발
-    - 데이터마이닝을 통한 인사이트 발굴
-    - 보고서 작성
-                    """)
-    
-    with st.expander("AI 기반 맞춤형 아파트 분석 추천시스템 개발(2022.06 ~ 2022.12)") :
-        st.markdown("- 구분 : 팀 프로젝트")
-        st.markdown("- 참여기간 : 2022.06 ~ 2022.12")
-        st.markdown("- 프로젝트 요약 : 아파트 부동산 데이터 기반 개인맞춤형 아파트 추천시스템 개발")
-        st.markdown("""- 담당 업무
-    - 데이터 수집
-    - 대시보드 개발
-                    """)
+        st.markdown("- 담당업무 : 기업 정보 데이터 수집/석, 데이터 분석앱 개발, 인사이트 도출 및 보고서 작성")
+        st.markdown("- 성과 : 데이터 분석앱 개발 완료, 사업비 7천만원 프로젝트 수행 완료")
+        st.markdown("- 기술 : R, Shiny")
 
-    with st.expander("ML을 활용한 종합 적응적 인지검사 시스템 ACT 개발(2021.10 ~ 2021.12)") :
+    with st.expander("ML을 활용한 종합 적응적 인지검사 시스템 ACT 개발") :
         st.markdown("- 구분 : 팀 프로젝트")
-        st.markdown("- 참여기간 : 2021.10 ~ 2021.12")
+        st.markdown("- 참여기간 : 2021.10 ~ 2021.12 (3개월)")
         st.markdown("- 프로젝트 요약 : ML을 이용한 기존보다 80% 짧은 길이의 인지검사 시스템 개발")
-        st.markdown("""- 담당 업무
-    - 데이터 전처리 및 분석
-    - ML을 이용한 적응적 검사 개발
-    - 결과 보고서 작성
-    - Working Technical Document 작성
-                    """)
-        st.markdown("참조 : http://211.169.249.237/site/defaultMain.do")
+        st.markdown("- 담당업무 : 데이터 가공/분석, ML을 이용한 적응적 검사 개발, 결과 보고서/Working Technical Document 작성")
+        st.markdown("- 성과 : 적응적 인지능력 검사 시스템 ACT 개발 및 런칭 성공(http://211.169.249.237/site/defaultMain.do)")
+        st.markdown("- 기술 : R")
+        
 
     st.markdown('<hr style="border: 1px solid #ccc; margin: 20px 0;">', unsafe_allow_html=True)
 

@@ -29,11 +29,11 @@ travel_summary = """
 <table>
   <tr>
     <th>진행기간</th>
-    <td>2023.09 ~ 2023.11</td> 
+    <td>2023.09-2023.11(3개월)</td> 
   </tr>
   <tr>
     <th>프로젝트 내용</th>
-    <td colspan="2">취향, 연령, 성별 등의 개인적 특성에 기반한 제주도 여행지 추천 웹서비스 개발</td> 
+    <td colspan="2">여행자 개인적 특성에 기반한 제주도 관광지 추천웹서비스 개발</td> 
   </tr>
   <tr>
     <th>사용언어/프레임워크</th>
@@ -67,12 +67,15 @@ with tab1 :
     
     st.markdown('<hr style="border: 1px solid #ccc; margin: 20px 0;">', unsafe_allow_html=True)
     
-    st.subheader("Ⅱ. WBS")
+    st.subheader("Ⅱ. 프로젝트 개요")
+    st.image("src/travel_recommend\overview_travel.png", use_column_width="auto") ##추후 수정##
+    
+    st.subheader("Ⅲ. WBS")
     st.image("https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/travel_recommend/WBS_recommend.png", use_column_width="auto")
     
     st.markdown('<hr style="border: 1px solid #ccc; margin: 20px 0;">', unsafe_allow_html=True)
     
-    st.subheader("Ⅲ. 결과물")
+    st.subheader("IV. 결과물")
     with st.expander("01)API Documnet") :
         st.components.v1.html('<iframe src="https://o5as6un2knzd5sl6ldr2gnn3ba0mbgdy.lambda-url.ap-northeast-2.on.aws/docs#/" width="800" height="600"></iframe>', height=600)
     with st.expander("02)최소기능제품") :
@@ -103,25 +106,21 @@ algorithms_info = """
     <th>알고리즘</th>
     <th>라이브러리</th>
     <th>설명</th>
-    <th>선정 여부</th>
   </tr>
   <tr>
     <td>Hybrid Approach</td>
     <td>LightFM</td>
     <td>Content-based와 Collaborative Filtering의 장점을 결합한 Hybrid 알고리즘</td>
-    <td>X</td>
   </tr>
   <tr>
     <td>DeepFM</td>
     <td>LibRecommender</td>
     <td>FM(Factorization Machine)과 딥러닝(DNN)을 결합시킨 알고리즘</td>
-    <td>X</td>
   </tr>
   <tr>
     <td>CatBoost</td>
     <td>CatBoost</td>
     <td>의사결정나무(Decision-Tree) 기반 ensemble method 중 하나로 범주형 변수에 대한 효율적인 처리를 장점으로 갖는 알고리즘</td>
-    <td>O</td>
   </tr>
 </table>
 """
@@ -138,14 +137,9 @@ with tab2 :
     with fcol2 :
             st.markdown(f'<div style="border: 2px solid {"orange"}; padding: 10px; max-width:800px;">\
                     <div style="position:relative; text-align:left;">\
-                        <p style="font-weight:normal;">{"〮자료출처 : AI-Hub 국내 여행로그 데이터(제주도 및 도서지역)"}</p>\
-                        <p style="font-weight:normal;">{"〮핵심 데이터 테이블 선정 → 데이터 모델링 후 Raw Data 적재 및 관리"}</p>\
-                    </div>\
-                    <div style="position:relative; text-align:center;">\
-                        <img src="{"https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/travel_recommend/important_table.png"}" alt="image" style="max-width:100%; max-height:400px;">\
-                    </div>\
-                    <div style="position:relative; text-align:left;">\
-                        <p style="font-weight:normal;">{"〮데이터 정제 프로세스"}</p>\
+                        <p style="font-weight:bold;">{"목적 : 1 ) 웹서비스 개발에 필요한 여 행 데이터 수 집 , 2 ) 분 석 및 모델링에 부적절한 데이터 탈 락 / 수 정"}</p>\
+                        <p style="font-weight:normal;">{"〮수집 : AI-Hub 국내 여행로그 데이터 → 데이터 모델링 후 DB내 Raw Data 적재 및 관리"}</p>\
+                        <p style="font-weight:normal;">{"〮가공 : 정보가 일부만 존재하는 여행 로그, 검색되지 않는 관광지 탈락/수정"}</p>\
                     </div>\
                     <div style="position:relative; text-align:center;">\
                         <img src="{"https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/travel_recommend/preprocessing.png"}" alt="image" style="max-width:100%; max-height:400px;">\
@@ -154,19 +148,20 @@ with tab2 :
             
     st.markdown('<hr style="border: 0.5px solid orange; margin: 20px 0;">', unsafe_allow_html=True)
 
-    #(2). 분석/시각화
+    #(2). 데이터 분석
     scol1, scol2 = st.columns([2,8])
     with scol1 :
         st.markdown(f'<div style="position:relative;">\
                             <div style="border: 2px solid {"grey"}; padding: 10px; display: inline-block;">\
-                                <span style="font-weight:bold;">{"분석/시각화"}</span>\
+                                <span style="font-weight:bold;">{"데이터 분석"}</span>\
                             </div>\
                         </div>', unsafe_allow_html=True)
     with scol2 :
             st.markdown(f'<div style="border: 2px solid {"orange"}; padding: 10px; max-width:800px;">\
                     <div style="position:relative; text-align:left;">\
-                        <p style="font-weight:normal;">{"〮여행객/관광지 특성 기반 클러스터링 실시 → 클러스터링 결과를 예측변수로 활용"}</p>\
-                        <p style="font-weight:normal;">{"〮60여개의 변수 중 여행객의 관광지 방문만족도를 설명하는 주요 변수 추출→ 만족도 예측변수로 활용"}</p>\
+                        <p style="font-weight:bold;">{"목적 : 추천시스템의 성 능 향상에 기여할 파생변수 생 성 ( F e a t u r e E n g i n e e r i n g )"}</p>\
+                        <p style="font-weight:normal;">{"〮60여개의 변수 중 여행객의 관광지 방문만족도를 설명하는 핵심변수 추출(Variable Importance)"}</p>\
+                        <p style="font-weight:normal;">{"〮여행객/관광지 핵심변수 기반 클러스터링 실시→ 군집번호를 모델링에서 예측변수로 활용"}</p>\
                     </div>\
                     <div style="position:relative; text-align:center;">\
                         <img src="{"https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/travel_recommend/analysis.png"}" alt="image" style="max-width:100%; max-height:400px;">\
@@ -187,17 +182,19 @@ with tab2 :
         st.markdown(f"""
             <div style="border: 2px solid orange; padding: 10px; max-width:800px;">\
                 <div style="position:relative; text-align:left;">\
-                    <p style="font-weight:normal;">{"〮알고리즘 후보군 선정"}</p>\
+                    <p style="font-weight:bold;">{"목적 : 여행자 / 관 광 지 특성을 이용해 여행자의 방 문 만족도 점수를 예측하는 머신러닝 모 델 개 발"}</p>\
                 </div>\
                 <div style="position:relative; text-align:center;">\
                     {algorithms_info}\
                 </div>\
                 <div>\
-                    <div style="position:relative; text-align:left;">\
-                        <p style="font-weight:normal;">{"〮모델 성능(만족도 범위 : 1-5점)"}</p>\
-                    </div>\
                     <div style="position:relative; text-align:center;">\
-                        <img src="https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/travel_recommend/performance_AI.png" alt="image" style="max-width:100%; max-height:400px;">\
+                        <img src="https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/travel_recommend/performance_AI_1.png" alt="image" style="max-width:100%; max-height:400px;">\
+                    </div>\
+                </div>\
+                <div>\
+                    <div style="position:relative; text-align:center;">\
+                        <img src="https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/travel_recommend/performance_AI_2.png" alt="image" style="max-width:100%; max-height:400px;">\
                     </div>\
                 </div>\
             </div>
@@ -217,11 +214,12 @@ with tab2 :
         st.markdown(f"""
             <div style="border: 2px solid orange; padding: 10px; max-width:800px;">\
                 <div style="position:relative; text-align:left;">\
-                    <p style="font-weight:normal;">{"〮개발프레임워크 : FastAPI"}</p>\
-                    <p style="font-weight:normal;">{"〮배포 : AWS"}</p>\
-                    <p style="font-weight:normal;">{"〮메소드 : POST"}</p>\
-                    <p style="font-weight:normal;">{"〮Request Body : 유저특성(User Features)"}</p>\
-                    <p style="font-weight:normal;">{"〮요청결과 : 각 카테고리 별 관광지 5곳"}</p>\
+                    <p style="font-weight:bold;">{"목적 : 여행자 / 관 광 지 특성을 이용해 여행자의 방 문 만족도 점수를 예측하는 머신러닝 모 델 개 발"}</p>\
+                </div>\
+                <div>\
+                    <div style="position:relative; text-align:center;">\
+                        <img src="https://raw.githubusercontent.com/jhyoon1999/portfolio/master/src/travel_recommend/API_AI.png" alt="image" style="max-width:100%; max-height:400px;">\
+                    </div>\
                 </div>\
             </div>
         """, unsafe_allow_html=True)
