@@ -153,14 +153,14 @@ with tab2 :
         st.markdown("- 구분 : 팀 프로젝트")
         st.markdown("- 참여기간 : 2022.06 ~ 2022.12 (6개월)")
         st.markdown("- 프로젝트 요약 : 국내 의류사업군 데이터 분석을 통한 국내 의류사업 실태 인사이트 발굴")
-        st.markdown("- 담당업무 : 기업 정보 데이터 수집/석, 데이터 분석앱 개발, 인사이트 도출 및 보고서 작성")
+        st.markdown("- 담당업무 : 기업 정보 데이터 수집/분석, 데이터 분석앱 개발, 인사이트 도출 및 보고서 작성")
         st.markdown("- 성과 : 데이터 분석앱 개발 완료, 사업비 7천만원 프로젝트 수행 완료")
         st.markdown("- 기술 : R, Shiny")
 
     with st.expander("ML을 활용한 종합 적응적 인지검사 시스템 ACT 개발") :
         st.markdown("- 구분 : 팀 프로젝트")
         st.markdown("- 참여기간 : 2021.10 ~ 2021.12 (3개월)")
-        st.markdown("- 프로젝트 요약 : ML을 이용한 기존보다 80% 짧은 길이의 인지검사 시스템 개발")
+        st.markdown("- 프로젝트 요약 : ML을 이용한 기존검사 대비 20% 소요시간을 갖는 인지능력 검사 시스템 개발")
         st.markdown("- 담당업무 : 데이터 가공/분석, ML을 이용한 적응적 검사 개발, 결과 보고서/Working Technical Document 작성")
         st.markdown("- 성과 : 적응적 인지능력 검사 시스템 ACT 개발 및 런칭 성공(http://211.169.249.237/site/defaultMain.do)")
         st.markdown("- 기술 : R")

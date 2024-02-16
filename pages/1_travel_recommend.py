@@ -184,7 +184,7 @@ with tab2 :
         st.markdown(f"""
             <div style="border: 2px solid orange; padding: 10px; max-width:800px;">\
                 <div style="position:relative; text-align:left;">\
-                    <p style="font-weight:bold;">{"목적 : 여행자 / 관 광 지 특성을 이용해 여행자의 방 문 만족도 점수를 예측하는 머신러닝 모 델 개 발"}</p>\
+                    <p style="font-weight:bold;">{"목적 : 여행자/관광지 특성을 이용해 여행자의 방문 만족도 점수를 예측하는 머신러닝 모델 개발"}</p>\
                 </div>\
                 <div style="position:relative; text-align:center;">\
                     {algorithms_info}\
@@ -216,7 +216,7 @@ with tab2 :
         st.markdown(f"""
             <div style="border: 2px solid orange; padding: 10px; max-width:800px;">\
                 <div style="position:relative; text-align:left;">\
-                    <p style="font-weight:bold;">{"목적 : 여행자 / 관 광 지 특성을 이용해 여행자의 방 문 만족도 점수를 예측하는 머신러닝 모 델 개 발"}</p>\
+                    <p style="font-weight:bold;">{"목적 : 추천시스템으로부터 Top 5의 추천 관광지를 산출하고, 결과를 앱에 통신할 수 있는 API 개발 및 배포"}</p>\
                 </div>\
                 <div>\
                     <div style="position:relative; text-align:center;">\
