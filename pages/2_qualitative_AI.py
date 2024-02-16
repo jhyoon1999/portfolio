@@ -30,11 +30,11 @@ qualitative_summary = """
 <table>
   <tr>
     <th>진행기간</th>
-    <td>2023.04 ~ 2023.10</td> 
+    <td>2023.04-2023.07(4개월)</td> 
   </tr>
   <tr>
     <th>프로젝트 내용</th>
-    <td colspan="2">텍스트 답변의 자동 라벨링 분석 플랫폼 구축</td> 
+    <td colspan="2">텍스트 답변의 토픽, 감성을 자동 라벨링 하는 분석 플랫폼 구축</td> 
   </tr>
   <tr>
     <th>사용언어</th>
@@ -72,9 +72,8 @@ with tab1 :
         st.text("\n")
         st.text("\n")
         st.write("###### 담당업무(기여도)")
-        st.progress(value=40, text = "사업계획서 및 발표자료 작성(40%)")
-        st.progress(value=60, text = "학습 도메인/프로젝트 선정(60%)")
-        st.progress(value=80, text = "데이터 수집/관리(80%)")
+        st.progress(value=50, text = "학습 도메인/프로젝트 선정(50%)")
+        st.progress(value=50, text = "데이터 수집/관리(50%)")
         st.progress(value=70, text = "통합 라벨링 체계 구축(70%)")
     
     st.markdown('<hr style="border: 1px solid #ccc; margin: 20px 0;">', unsafe_allow_html=True)
