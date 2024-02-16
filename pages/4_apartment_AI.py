@@ -29,7 +29,7 @@ apartment_summary = """
 <table>
   <tr>
     <th>진행기간</th>
-    <td>2022.06 ~ 2022.12</td> 
+    <td>2022.06 ~ 2022.12(6개월)</td> 
   </tr>
   <tr>
     <th>프로젝트 내용</th>
