@@ -139,7 +139,7 @@ with tab2 :
     with fcol2 :
             st.markdown(f'<div style="border: 2px solid {"orange"}; padding: 10px; max-width:800px;">\
                     <div style="position:relative; text-align:left;">\
-                        <p style="font-weight:bold;">{"목적 : 1 ) 웹서비스 개발에 필요한 여 행 데이터 수 집 , 2 ) 분 석 및 모델링에 부적절한 데이터 탈 락 / 수 정"}</p>\
+                        <p style="font-weight:bold;">{"목적 : 1) 웹서비스 개발에 필요한 여행 데이터 수 집 , 2) 분석 및 모델링에 부적절한 데이터 탈락/수정"}</p>\
                         <p style="font-weight:normal;">{"〮수집 : AI-Hub 국내 여행로그 데이터 → 데이터 모델링 후 DB내 Raw Data 적재 및 관리"}</p>\
                         <p style="font-weight:normal;">{"〮가공 : 정보가 일부만 존재하는 여행 로그, 검색되지 않는 관광지 탈락/수정"}</p>\
                     </div>\
